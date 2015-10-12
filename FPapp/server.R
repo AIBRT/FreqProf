@@ -24,13 +24,19 @@ shinyServer(function(input, output, session) {
     return(data.behavior)
   }
   
+  getWindowLength = function(unit,window,data){
+    if(unit == "bins")
+      return(window)
+    else
+      return(round(window/100*nrow(data)))
+  }
+  
   output$distPlot <- renderPlot({  
-    
     data.behavior = getDataFromShiny(input$file)
     if(is.null(data.behavior)) return(NULL)
     
     data.freqprof = freqprof(data.behavior,
-                             window = input$window,
+                             window = getWindowLength(input$unit_length,input$window,data.behavior),
                              step = input$step,
                              resolution = input$resolution,
                              which = input$which)
@@ -46,9 +52,16 @@ shinyServer(function(input, output, session) {
     data.behavior = getDataFromShiny(input$file)
     if(is.null(data.behavior)) return(NULL)
     
-    window = round(.25*nrow(data.behavior))
-    updateSliderInput(session, "window", value = window,
-                      min = 1, max = 4*window, step = round(window/20))
+    if(input$unit_length == "bins"){
+      win = round(.25*nrow(data.behavior))
+      updateSliderInput(session, "window", value = win,
+                        min = 1, max = 4*win, step = 1)  
+    }
+    if(input$unit_length == "percent"){
+      updateSliderInput(session, "window", value = 25,
+                        min = 1, max = 100, step = 1)
+    }
+    
   })
   
   output$downloadData <- downloadHandler(
@@ -78,7 +91,7 @@ shinyServer(function(input, output, session) {
       pdf(file,width = 10)
       data.behavior = getDataFromShiny(input$file)
       data.freqprof = freqprof(data.behavior,
-                               window = input$window,
+                               getWindowLength(input$unit_length,input$window,data.behavior),
                                step = input$step,
                                resolution = input$resolution,
                                which = input$which)
@@ -100,7 +113,7 @@ shinyServer(function(input, output, session) {
       png(file,width = 800)
       data.behavior = getDataFromShiny(input$file)
       data.freqprof = freqprof(data.behavior,
-                               window = input$window,
+                               window = getWindowLength(input$unit_length,input$window,data.behavior),
                                step = input$step,
                                resolution = input$resolution,
                                which = input$which)
