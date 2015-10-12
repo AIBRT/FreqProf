@@ -76,6 +76,7 @@ shinyServer(function(input, output, session) {
     filename = function() { paste0("ShinyPlot.pdf") },
     content = function(file) {
       pdf(file,width = 10)
+      data.behavior = getDataFromShiny(input$file)
       data.freqprof = freqprof(data.behavior,
                                window = input$window,
                                step = input$step,
@@ -97,6 +98,7 @@ shinyServer(function(input, output, session) {
     filename = function() { paste0("ShinyPlot.png") },
     content = function(file) {
       png(file,width = 800)
+      data.behavior = getDataFromShiny(input$file)
       data.freqprof = freqprof(data.behavior,
                                window = input$window,
                                step = input$step,
