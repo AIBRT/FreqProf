@@ -88,7 +88,7 @@ shinyServer(function(input, output, session) {
   output$downloadPlotPDF <- downloadHandler(
     filename = function() { paste0("ShinyPlot.pdf") },
     content = function(file) {
-      pdf(file,width = 10)
+      pdf(file,width = input$graphWidth, height = input$graphHeight)
       data.behavior = getDataFromShiny(input$file)
       data.freqprof = freqprof(data.behavior,
                                getWindowLength(input$unit_length,input$window,data.behavior),
@@ -110,7 +110,7 @@ shinyServer(function(input, output, session) {
   output$downloadPlotPNG <- downloadHandler(
     filename = function() { paste0("ShinyPlot.png") },
     content = function(file) {
-      png(file,width = 800)
+      png(file,width = input$graphWidth, height = input$graphHeight, units = 'in', res = 100)
       data.behavior = getDataFromShiny(input$file)
       data.freqprof = freqprof(data.behavior,
                                window = getWindowLength(input$unit_length,input$window,data.behavior),

@@ -33,7 +33,9 @@ shinyUI(fluidPage(
       downloadButton('downloadData', 'Download Data'),
       tags$hr(),
       downloadButton('downloadPlotPDF', 'Download Plot as PDF'),
-      downloadButton('downloadPlotPNG', 'Download Plot as PNG')
+      downloadButton('downloadPlotPNG', 'Download Plot as PNG'),
+      numericInput("graphWidth", "Width (inches):", min=1, max=20, value=10, step=1),
+      numericInput("graphHeight", "Height (inches):", min=1, max=20, value=8, step=1)
     ),
     
     mainPanel(
