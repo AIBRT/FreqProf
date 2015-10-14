@@ -47,7 +47,7 @@ freqprof = function(data.behavior,
 }
 
 # Create Frequency Profiles
-plot.freqprof = function(data.freqprof,yAxis=NULL,xAxisUnits = "sec", panel.in = T, panel.out = T, gg = F, multiPlot = F){
+plot.freqprof = function(data.freqprof,yAxis=NULL,xAxisUnits = "sec", panel.in = T, panel.out = T, gg = F, multiPlot = F, tick.every = round(length(data.freqprof$data$time)/31), label.every = 3){
   # extract relevant data from data.freqprof
   res <- data.freqprof$data
   panels = res$panels
@@ -92,7 +92,9 @@ plot.freqprof = function(data.freqprof,yAxis=NULL,xAxisUnits = "sec", panel.in =
       labs(title = "Frequency Profile") +
       xlab(paste('Time (',resolution * step,' ',xAxisUnits,')',sep="")) +
       ylab(yAxis) +
-      scale_x_continuous(limits = c(xmin,xmax)) +
+      scale_x_continuous(limits = c(xmin,xmax),
+                         minor_breaks = round(seq(xmin, xmax, by=tick.every)),
+                         breaks = round(seq(xmin, xmax, by=tick.every*label.every))) +
       scale_color_discrete(name="Behavior") +
       theme(axis.text = element_text(size = 12, colour = "#3f3f3f"),
             axis.title.x = element_text(size = 15, face = "bold", vjust = -.5),
@@ -101,7 +103,11 @@ plot.freqprof = function(data.freqprof,yAxis=NULL,xAxisUnits = "sec", panel.in =
             legend.text = element_text(size = 12),
             panel.background = element_rect(fill = '#f6f6f6'),
             panel.grid.major = element_line(colour = "#e9e9e9"),
-            axis.line = element_line(color = "#a8a8a8"))
+            panel.grid.minor = element_line(colour = "#e9e9e9"),
+            axis.line = element_line(color = "#a8a8a8"),
+            axis.ticks = element_line(colour = "black", size = 1),
+            axis.ticks.length = unit(-0.25, "cm"),
+            axis.ticks.margin = unit(0.5, "cm"))
     
     if(panel.in){
       p = p + geom_vline(xintercept = x.panel.left)
@@ -128,7 +134,12 @@ plot.freqprof = function(data.freqprof,yAxis=NULL,xAxisUnits = "sec", panel.in =
              ylim = c(0,max(freqprof)),
              xlim = c(xmin,xmax),
              xlab = '',
-             ylab = '')
+             ylab = '',
+             xaxt = 'n')
+        n.minor = length(ax <- seq(from = xmin,to = xmax,by = tick.every))
+        axis(1,at = ax, labels = F)
+        lab = ax[seq(1,n.minor,by=label.every)]
+        axis(1,at = lab, labels = T)
         if(panel.in){
           abline(v = x.panel.left)
         } 
@@ -140,7 +151,9 @@ plot.freqprof = function(data.freqprof,yAxis=NULL,xAxisUnits = "sec", panel.in =
       par(mfrow = c(ncol(freqprof),1))
       par(cex = .6)
       par(mar = c(2,2,2,2), oma = c(4, 4, 0.5, 0.5))
+      
       for(j in 1:ncol(freqprof)) plotBehavior(j)
+      
       mtext(paste('Time (',resolution * step,' ',xAxisUnits,')',sep=""), side = 1, outer = TRUE,cex = 0.7, line = 2.2)
       mtext(yAxis, side = 2, outer = TRUE,cex = 0.7, line = 2.2)
     }
@@ -152,7 +165,13 @@ plot.freqprof = function(data.freqprof,yAxis=NULL,xAxisUnits = "sec", panel.in =
            ylim = c(0,max(freqprof)),
            xlim = c(xmin,xmax),
            ylab = yAxis,
-           xlab = paste('Time (',resolution,' ',xAxisUnits,')',sep=""))
+           xlab = paste('Time (',resolution,' ',xAxisUnits,')',sep=""),
+           xaxt = 'n')
+      n.minor = length(ax <- seq(from = xmin,to = xmax,by = tick.every))
+      axis(1,at = ax, labels = F)
+      lab = ax[seq(1,n.minor,by=label.every)]
+      axis(1,at = lab, labels = T)
+      
       if(ncol(freqprof)>1){
         for(j in 2:ncol(freqprof)){
           lines(t,

@@ -45,7 +45,9 @@ shinyServer(function(input, output, session) {
                   panel.in = input$panel.in,
                   panel.out = input$panel.out,
                   multiPlot = input$multiplot,
-                  xAxisUnits = input$units)
+                  xAxisUnits = input$units,
+                  tick.every = input$tick.every,
+                  label.every = input$label.every)
   })
   
   observe({
@@ -62,6 +64,11 @@ shinyServer(function(input, output, session) {
                         min = 1, max = 100, step = 1)
     }
     
+    t.every = round(nrow(data.behavior)/31)
+    updateSliderInput(session, "tick.every", value = t.every,
+                      min = 1, max = nrow(data.behavior), step = 1)
+    updateSliderInput(session, "label.every", value = 3,
+                      min = 1, max = 100, step = 1)
   })
   
   output$downloadData <- downloadHandler(
