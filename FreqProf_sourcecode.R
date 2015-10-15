@@ -125,6 +125,12 @@ plot.freqprof = function(data.freqprof,yAxis=NULL,xAxisUnits = "sec", panel.in =
   } else{
     
     # no ggplot
+    
+    if(is.null(ncol(freqprof))){
+      # case of only one column selected
+      freqprof = as.data.frame(freqprof)
+    }
+    
     if(multiPlot) {
       plotBehavior = function(j){
         plot(t,

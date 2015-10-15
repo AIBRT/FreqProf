@@ -21,7 +21,23 @@ shinyServer(function(input, output, session) {
     
     if(is.null(data.behavior)) stop("file extension must be either csv, fpw, or bin")
     
-    return(data.behavior)
+    # update selected behaviors
+    updateCheckboxGroupInput(session, "selected.behaviors",
+                             choices = names(data.behavior),
+                             selected = input$selected.behaviors)
+    
+    data.behavior = data.behavior[,names(data.behavior) %in% input$selected.behaviors]
+    
+    if(is.null(ncol(data.behavior))){
+      # this means that only one behavior is selected
+      dat = as.data.frame(data.behavior)
+      names(dat) = input$selected.behaviors
+      return(dat)
+    }
+    
+    if(ncol(data.behavior)>1) return(data.behavior)
+    
+    return(NULL)
   }
   
   getWindowLength = function(unit,window,data){
@@ -40,20 +56,23 @@ shinyServer(function(input, output, session) {
                              step = input$step,
                              resolution = input$resolution,
                              which = input$which)
-    plot.freqprof(data.freqprof,
-                  gg=input$ggplot,
-                  panel.in = input$panel.in,
-                  panel.out = input$panel.out,
-                  multiPlot = input$multiplot,
-                  xAxisUnits = input$units,
-                  tick.every = input$tick.every,
-                  label.every = input$label.every)
+    
+    # plotting
+    plot(data.freqprof,
+         gg=input$ggplot,
+         panel.in = input$panel.in,
+         panel.out = input$panel.out,
+         multiPlot = input$multiplot,
+         xAxisUnits = input$units,
+         tick.every = input$tick.every,
+         label.every = input$label.every)
   })
   
   observe({
     data.behavior = getDataFromShiny(input$file)
     if(is.null(data.behavior)) return(NULL)
     
+    # update range for window length
     if(input$unit_length == "bins"){
       win = round(.25*nrow(data.behavior))
       updateSliderInput(session, "window", value = win,
@@ -64,6 +83,7 @@ shinyServer(function(input, output, session) {
                         min = 1, max = 100, step = 1)
     }
     
+    # update tick.every and label.every
     t.every = round(nrow(data.behavior)/31)
     updateSliderInput(session, "tick.every", value = t.every,
                       min = 1, max = nrow(data.behavior), step = 1)
