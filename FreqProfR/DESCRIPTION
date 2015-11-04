@@ -1,0 +1,9 @@
+Package: FreqProfR
+Type: Package
+Title: Frequency Profiles computing and plotting.
+Version: 1.0
+Date: 2015-11-04
+Author: Thomas Boulier <thomas.boulier@polytechnique.edu>
+Maintainer: Ronald Robertson <rrobertson@aibrt.org>
+Description: This package aims at computing and plotting frequency profiles from data encoded into .bin, .fpw and .csv formats. It has a user-friendly interface - using the "Shiny App" framework - so that anyone can use it, even without any prior on R programming.
+License: What license is it under?
