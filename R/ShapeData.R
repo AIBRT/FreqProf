@@ -6,6 +6,7 @@
 #' @param resolution the number of points contained in a bin
 #' @param which giving the moving function to apply: sum or proportion
 #' @return The data in a \code{freqprof} object.
+#' @export
 #' @examples
 #' freqprof(import.data())
 freqprof = function(data.behavior,
@@ -38,9 +39,10 @@ freqprof = function(data.behavior,
 
 #' Internal function.
 #' 
-#' @param x
-#' @param r
+#' @param x data
+#' @param r resolution
 #' @return Helpful for \code{movfun}.
+#' @export
 #' @examples
 #' radj(as.numeric(runif(10)>.5),2)
 radj <- function(x, r) {
@@ -63,7 +65,9 @@ radj <- function(x, r) {
 #' @param s step
 #' @param r resolution
 #' @param fun "sum" or "proportion"
-#' @return Used for computing moving function. Returns a list containing the processed data into $movfun, and the associated panels into $panels.
+#' @return Used for computing moving function. Returns a list containing the
+#'   processed data into $movfun, and the associated panels into $panels.
+#' @export
 #' @examples
 #' movfun(as.numeric(runif(10)>.5),2,1,1,"sum")
 movfun = function(x,n,s,r,fun){
@@ -93,6 +97,7 @@ movfun = function(x,n,s,r,fun){
 #' 
 #' @param data.freqprof the data
 #' @return NULL.
+#' @export
 #' @examples
 #' print.freqprof(freqprof(import.data()))
 print.freqprof = function(data.freqprof){
@@ -103,6 +108,7 @@ print.freqprof = function(data.freqprof){
 #' 
 #' @param data.freqprof the data
 #' @return NULL.
+#' @export
 #' @examples
 #' head.freqprof(freqprof(import.data()))
 head.freqprof = function(data.freqprof){
@@ -113,6 +119,7 @@ head.freqprof = function(data.freqprof){
 #' 
 #' @param data.freqprof the data
 #' @return NULL.
+#' @export
 #' @examples
 #' tail.freqprof(freqprof(import.data()))
 tail.freqprof = function(data.freqprof){

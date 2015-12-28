@@ -11,7 +11,9 @@ Authors@R: as.person(c(
     "AIBRT <info@aibrt.org> [cph]"
     ))
 Maintainer: Ronald Robertson <rrobertson@aibrt.org>
-Description: This package aims at computing and plotting frequency profiles from data encoded into 
-    .bin, .fpw, and .csv formats. It has a user-friendly interface - using the "Shiny App" framework - so 
-    that anyone can use it, even without any prior on R programming.
+Description: This package aims at computing and plotting frequency profiles from
+    data encoded into .bin, .fpw, and .csv formats. It has a user-friendly interface
+    - using the "Shiny App" framework - so that anyone can use it, even without any
+    prior on R programming.
 License: GPL-3
+RoxygenNote: 5.0.1

@@ -2,14 +2,19 @@
 #' 
 #' @param data.freqprof data formated into \code{freqprof} class.
 #' @param yAxis a string giving the legend of the y-axis.
-#' @param xAxisUnits a string indicating which unit has been used. By default, "sec".
+#' @param xAxisUnits a string indicating which unit has been used. By default,
+#'   "sec".
 #' @param panel.in a boolean indicating if the first panel has to be plotted.
 #' @param panel.out a boolean indicating if the third panel has to be plotted
 #' @param gg if TRUE, will use the 'ggplot2' package. By default, gg = FALSE.
-#' @param multiPlot if TRUE, will plot each behavior in a distinct panel. By default, multiPlot = FALSE.
-#' @param tick.every the spacing between each tick. By default, N/30 where N is the number of time units.
-#' @param label.every label every X ticks, where X = label.every. By default, label.every = 3.
+#' @param multiPlot if TRUE, will plot each behavior in a distinct panel. By
+#'   default, multiPlot = FALSE.
+#' @param tick.every the spacing between each tick. By default, N/30 where N is
+#'   the number of time units.
+#' @param label.every label every X ticks, where X = label.every. By default,
+#'   label.every = 3.
 #' @return The function plots the data but does not return anything.
+#' @export
 #' @examples
 #' plot.freqprof(freqprof(import.data()))
 plot.freqprof = function(data.freqprof,

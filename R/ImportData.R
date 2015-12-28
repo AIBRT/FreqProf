@@ -1,10 +1,14 @@
 ### Import data pop up
 
-#' This function reads a file, whose extension is either csv, bin or fpw,
-#' and imports it as a data.frame.
+#' This function reads a file, whose extension is either csv, bin or fpw, and
+#' imports it as a data.frame.
 #' 
-#' @param filename a string indicating the path of the file containing the data. By default, will open a pop-up so that the user can choose a file with the GUI.
-#' @return A data.frame ready to be converted into freqprof class (see function \code{freqprof}).
+#' @param filename a string indicating the path of the file containing the data.
+#'   By default, will open a pop-up so that the user can choose a file with the
+#'   GUI.
+#' @return A data.frame ready to be converted into freqprof class (see function
+#'   \code{freqprof}).
+#' @export
 #' @examples
 #' import.data()
 import.data = function(filename = file.choose()){
@@ -29,6 +33,7 @@ import.data = function(filename = file.choose()){
 #' 
 #' @param filename a string indicating the path of the file.
 #' @return A data.frame giving the raw data.
+#' @export
 #' @examples
 #' read.bin(file.choose())
 read.bin = function(filename){
@@ -60,6 +65,7 @@ read.bin = function(filename){
 #' 
 #' @param filename a string indicating the path of the file.
 #' @return A data.frame giving the raw data.
+#' @export
 #' @examples
 #' read.bin(file.choose())
 read.fpw = function(filename){
