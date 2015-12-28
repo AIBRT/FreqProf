@@ -13,7 +13,8 @@
 
 \item{yAxis}{a string giving the legend of the y-axis.}
 
-\item{xAxisUnits}{a string indicating which unit has been used. By default, "sec".}
+\item{xAxisUnits}{a string indicating which unit has been used. By default,
+"sec".}
 
 \item{panel.in}{a boolean indicating if the first panel has to be plotted.}
 
@@ -21,11 +22,14 @@
 
 \item{gg}{if TRUE, will use the 'ggplot2' package. By default, gg = FALSE.}
 
-\item{multiPlot}{if TRUE, will plot each behavior in a distinct panel. By default, multiPlot = FALSE.}
+\item{multiPlot}{if TRUE, will plot each behavior in a distinct panel. By
+default, multiPlot = FALSE.}
 
-\item{tick.every}{the spacing between each tick. By default, N/30 where N is the number of time units.}
+\item{tick.every}{the spacing between each tick. By default, N/30 where N is
+the number of time units.}
 
-\item{label.every}{label every X ticks, where X = label.every. By default, label.every = 3.}
+\item{label.every}{label every X ticks, where X = label.every. By default,
+label.every = 3.}
 }
 \value{
 The function plots the data but does not return anything.

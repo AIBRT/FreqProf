@@ -18,7 +18,8 @@ movfun(x, n, s, r, fun)
 \item{fun}{"sum" or "proportion"}
 }
 \value{
-Used for computing moving function. Returns a list containing the processed data into $movfun, and the associated panels into $panels.
+Used for computing moving function. Returns a list containing the
+  processed data into $movfun, and the associated panels into $panels.
 }
 \description{
 Moving function

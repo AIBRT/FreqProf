@@ -2,20 +2,23 @@
 % Please edit documentation in R/ImportData.R
 \name{import.data}
 \alias{import.data}
-\title{This function reads a file, whose extension is either csv, bin or fpw,
-and imports it as a data.frame.}
+\title{This function reads a file, whose extension is either csv, bin or fpw, and
+imports it as a data.frame.}
 \usage{
 import.data(filename = file.choose())
 }
 \arguments{
-\item{filename}{a string indicating the path of the file containing the data. By default, will open a pop-up so that the user can choose a file with the GUI.}
+\item{filename}{a string indicating the path of the file containing the data.
+By default, will open a pop-up so that the user can choose a file with the
+GUI.}
 }
 \value{
-A data.frame ready to be converted into freqprof class (see function \code{freqprof}).
+A data.frame ready to be converted into freqprof class (see function
+  \code{freqprof}).
 }
 \description{
-This function reads a file, whose extension is either csv, bin or fpw,
-and imports it as a data.frame.
+This function reads a file, whose extension is either csv, bin or fpw, and
+imports it as a data.frame.
 }
 \examples{
 import.data()
