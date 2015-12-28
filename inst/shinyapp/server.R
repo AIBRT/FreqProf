@@ -1,5 +1,7 @@
 library(shiny)
-source("../FreqProf_sourcecode.R")
+source("../../R/ImportData.R")
+source("../../R/ShapeData.R")
+source("../../R/PlotData.R")
 
 shinyServer(function(input, output, session) {
   
