@@ -15,5 +15,6 @@ Description: This package aims at computing and plotting frequency profiles from
     data encoded into .bin, .fpw, and .csv formats. It has a user-friendly interface
     - using the "Shiny App" framework - so that anyone can use it, even without any
     prior on R programming.
+Suggests: Shiny
 License: GPL-3
 RoxygenNote: 5.0.1
