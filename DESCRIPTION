@@ -1,4 +1,4 @@
-Package: FreqProfR
+Package: FreqProf
 Type: Package
 Title: Frequency Profiles computing and plotting.
 Version: 1.0.0
