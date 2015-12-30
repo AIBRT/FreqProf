@@ -4,7 +4,7 @@
 #' @examples
 #' runExample()
 runExample <- function() {
-  appDir <- system.file("inst", "shinyapp", package = "FreqProf")
+  appDir <- system.file("shinyapp", package = "FreqProf")
   if (appDir == "") {
     stop("Could not find example directory. Try reinstalling `FreqProf`.", call. = FALSE)
   }
