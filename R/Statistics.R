@@ -32,6 +32,17 @@ ks.testm <- function(data1, data2, vars){
   return(a)
 }
 
+#' Correlation test for multiple variables - of the same name - in separate
+#' data.frames
+#' 
+#' @param data1 a data.frame with X variables
+#' @param data2 a data.frame with the same X variables as data1
+#' @param method a correlation method, either "pearson" or "spearman"
+#'   
+#' @return Returns a data.frame with correlation data
+#' @export
+#' 
+#' @examples
 cor.testm <- function(data1, data2, method) {
   # Correlation for multiple variables in data
   # data1 = data1
@@ -70,4 +81,3 @@ cor.testm <- function(data1, data2, method) {
   names(newdata)[3:4] <- c("ci.min", "ci.max")
   return(newdata)
 }
-
