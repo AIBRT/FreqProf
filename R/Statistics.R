@@ -1,6 +1,18 @@
 # Wrapper functions for applying linear interpolation, and correlation and 
 # kolmogorov-smirnov tests to multiple variables in separate datasets.
 
+#' Interpolate multiple columns of a \code{data.frame}
+#' 
+#' @param data1 a \code{data.frame} with columns for interpolation
+#' @param n the number of points to interpolate
+#' @param method the method to interpolate by, \code{"linear"} or 
+#'   \code{"spline"}
+#' @return Returns a \code{data.frame} of all \code{data1} variables
+#'   interpolated to \code{n} rows.
+#' @seealso \code{\link{ks.test}} is the underlying function and has more
+#'   options
+#' @export
+#' 
 approxm <- function(data, n, method = "linear") {
   # Linear interpolation for multiple variables in data
   # data = data.frame
@@ -19,6 +31,20 @@ approxm <- function(data, n, method = "linear") {
 }
 
 
+#' Kolmogorov-Smirnov test for multiple variables - of the same name - in 
+#' separate data.frames
+#' 
+#' @param data1 a \code{data.frame} with N variables
+#' @param data2 a \code{data.frame} with the same N variables as data1
+#' @param vars a \code{vector} of the N variable names
+#'   
+#' @return Returns a \code{data.frame} with Kolmogorov-Smivnov test data for N
+#'   variables
+#' @seealso \code{\link{ks.test}} is the underlying function and has more
+#'   options.
+#'   
+#' @export
+#' 
 ks.testm <- function(data1, data2, vars){
   # Compares multiple variables of the same name
   # in two data sets and returns in table format
@@ -32,17 +58,19 @@ ks.testm <- function(data1, data2, vars){
   return(a)
 }
 
-#' Correlation test for multiple variables - of the same name - in separate
+#' Correlation test for multiple variables - of the same name - in separate 
 #' data.frames
 #' 
-#' @param data1 a data.frame with X variables
-#' @param data2 a data.frame with the same X variables as data1
-#' @param method a correlation method, either "pearson" or "spearman"
+#' @param data1 a \code{data.frame} with N variables
+#' @param data2 a \code{data.frame} with the same N variables as \code{data1}
+#' @param method a correlation method, either \code{method = "pearson"} or 
+#'   \code{"spearman"}
 #'   
-#' @return Returns a data.frame with correlation data
+#' @return Returns a \code{data.frame} of correlation test data for N variables
+#' @seealso \code{\link{cor.test}} is the underlying function and has more
+#'   options
 #' @export
 #' 
-#' @examples
 cor.testm <- function(data1, data2, method) {
   # Correlation for multiple variables in data
   # data1 = data1
