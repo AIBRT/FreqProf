@@ -1,8 +1,5 @@
 Package: FreqProf
-Type: Package
-Title: Frequency Profiles computing and plotting.
 Version: 1.0.0
-Date: 2015-12-28
 Authors@R: as.person(c(
     "Robert Epstein <re@aibrt.org> [ccp, cre]",
     "Thomas Boulier <thomas.boulier@polytechnique.edu> [aut]",
@@ -10,11 +7,16 @@ Authors@R: as.person(c(
     "Ronald Robertson <rrobertson@aibrt.org> [aut]",
     "AIBRT <info@aibrt.org> [cph]"
     ))
-Maintainer: Ronald Robertson <rrobertson@aibrt.org>
+Title: Frequency Profiles Computing and Plotting
 Description: This package aims at computing and plotting frequency profiles from
     data encoded into .bin, .fpw, and .csv formats. It has a user-friendly interface
     - using the "Shiny App" framework - so that anyone can use it, even without any
     prior on R programming.
-Suggests: Shiny
 License: GPL-3
+Maintainer: Ronald Robertson <rrobertson@aibrt.org>
+Depends: R (>= 3.2.2)
+Imports:
+    reshape2,
+    ggplot2,
+    shiny
 RoxygenNote: 5.0.1
