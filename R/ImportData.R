@@ -1,5 +1,5 @@
-### Import data pop up
-
+#' Import Data Pop Up
+#' 
 #' This function reads a file, whose extension is either csv, bin or fpw, and
 #' imports it as a data.frame.
 #' 
@@ -10,7 +10,9 @@
 #'   \code{freqprof}).
 #' @export
 #' @examples
+#' \donttest{
 #' import.data()
+#' }
 import.data = function(filename = file.choose()){
   # this function reads a file, whose extension is either csv, bin or fpw,
   # and imports it as a data.frame

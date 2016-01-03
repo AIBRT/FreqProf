@@ -2,8 +2,7 @@
 % Please edit documentation in R/ImportData.R
 \name{import.data}
 \alias{import.data}
-\title{This function reads a file, whose extension is either csv, bin or fpw, and
-imports it as a data.frame.}
+\title{Import Data Pop Up}
 \usage{
 import.data(filename = file.choose())
 }
@@ -21,6 +20,8 @@ This function reads a file, whose extension is either csv, bin or fpw, and
 imports it as a data.frame.
 }
 \examples{
+\donttest{
 import.data()
+}
 }
 

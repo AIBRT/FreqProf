@@ -8,7 +8,8 @@
 #' @return The data in a \code{freqprof} object.
 #' @export
 #' @examples
-#' freqprof(import.data())
+#' data(s58)
+#' freqprof(s58)
 freqprof = function(data.behavior,
                     window=round(.25*nrow(data.behavior)),
                     step=1,
@@ -91,37 +92,4 @@ movfun = function(x,n,s,r,fun){
   }
   
   return( list(movfun = c(0,res,0), panels = c(1,panels,3) ) )
-}
-
-#' Prints the data contained into a variable of class freqprof
-#' 
-#' @param data.freqprof the data
-#' @return NULL.
-#' @export
-#' @examples
-#' print.freqprof(freqprof(import.data()))
-print.freqprof = function(data.freqprof){
-  print(data.freqprof$data)
-}
-
-#' Prints the head of the data contained into a variable of class freqprof
-#' 
-#' @param data.freqprof the data
-#' @return NULL.
-#' @export
-#' @examples
-#' head.freqprof(freqprof(import.data()))
-head.freqprof = function(data.freqprof){
-  head(data.freqprof$data)
-}
-
-#' Prints the tail of the data contained into a variable of class freqprof
-#' 
-#' @param data.freqprof the data
-#' @return NULL.
-#' @export
-#' @examples
-#' tail.freqprof(freqprof(import.data()))
-tail.freqprof = function(data.freqprof){
-  tail(data.freqprof$data)
 }

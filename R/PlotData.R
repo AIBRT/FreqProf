@@ -1,22 +1,28 @@
-#' Creates Frequency Profiles and plots it.
+#' Plot Frequency Profiles.
+#' 
+#' Plot data that has already been converted to class \code{freqprof} with 
+#'\code{\link{freqprof}}.
 #' 
 #' @param data.freqprof data formated into \code{freqprof} class.
 #' @param yAxis a string giving the legend of the y-axis.
-#' @param xAxisUnits a string indicating which unit has been used. By default,
+#' @param xAxisUnits a string indicating which unit has been used. By default, 
 #'   "sec".
 #' @param panel.in a boolean indicating if the first panel has to be plotted.
 #' @param panel.out a boolean indicating if the third panel has to be plotted
 #' @param gg if TRUE, will use the 'ggplot2' package. By default, gg = FALSE.
-#' @param multiPlot if TRUE, will plot each behavior in a distinct panel. By
+#' @param multiPlot if TRUE, will plot each behavior in a distinct panel. By 
 #'   default, multiPlot = FALSE.
-#' @param tick.every the spacing between each tick. By default, N/30 where N is
+#' @param tick.every the spacing between each tick. By default, N/30 where N is 
 #'   the number of time units.
-#' @param label.every label every X ticks, where X = label.every. By default,
+#' @param label.every label every X ticks, where X = label.every. By default, 
 #'   label.every = 3.
 #' @return The function plots the data but does not return anything.
+#' @importFrom reshape2 melt
+#' @import ggplot2
 #' @export
 #' @examples
-#' plot.freqprof(freqprof(import.data()))
+#' data(s58)
+#' plot.freqprof(freqprof(s58))
 plot.freqprof = function(data.freqprof,
                          yAxis=NULL,
                          xAxisUnits = "sec",
@@ -57,10 +63,7 @@ plot.freqprof = function(data.freqprof,
   cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
   
   if(gg){
-    require(ggplot2)
-    require(reshape2)
-    require(grid)
-    
+
     res.melt <- melt(res, id = "time")
     
     # Graphing function

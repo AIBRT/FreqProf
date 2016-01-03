@@ -25,6 +25,7 @@ The data in a \code{freqprof} object.
 Convert data to moving sum/prop.
 }
 \examples{
-freqprof(import.data())
+data(s58)
+freqprof(s58)
 }
 

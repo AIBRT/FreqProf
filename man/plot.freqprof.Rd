@@ -2,7 +2,7 @@
 % Please edit documentation in R/PlotData.R
 \name{plot.freqprof}
 \alias{plot.freqprof}
-\title{Creates Frequency Profiles and plots it.}
+\title{Plot Frequency Profiles.}
 \usage{
 \method{plot}{freqprof}(data.freqprof, yAxis = NULL, xAxisUnits = "sec",
   panel.in = T, panel.out = T, gg = F, multiPlot = F,
@@ -13,7 +13,7 @@
 
 \item{yAxis}{a string giving the legend of the y-axis.}
 
-\item{xAxisUnits}{a string indicating which unit has been used. By default,
+\item{xAxisUnits}{a string indicating which unit has been used. By default, 
 "sec".}
 
 \item{panel.in}{a boolean indicating if the first panel has to be plotted.}
@@ -22,22 +22,24 @@
 
 \item{gg}{if TRUE, will use the 'ggplot2' package. By default, gg = FALSE.}
 
-\item{multiPlot}{if TRUE, will plot each behavior in a distinct panel. By
+\item{multiPlot}{if TRUE, will plot each behavior in a distinct panel. By 
 default, multiPlot = FALSE.}
 
-\item{tick.every}{the spacing between each tick. By default, N/30 where N is
+\item{tick.every}{the spacing between each tick. By default, N/30 where N is 
 the number of time units.}
 
-\item{label.every}{label every X ticks, where X = label.every. By default,
+\item{label.every}{label every X ticks, where X = label.every. By default, 
 label.every = 3.}
 }
 \value{
 The function plots the data but does not return anything.
 }
 \description{
-Creates Frequency Profiles and plots it.
+Plot data that has already been converted to class \code{freqprof} with 
+\code{\link{freqprof}}.
 }
 \examples{
-plot.freqprof(freqprof(import.data()))
+data(s58)
+plot.freqprof(freqprof(s58))
 }
 
