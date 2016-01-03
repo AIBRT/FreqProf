@@ -1,5 +1,5 @@
 Package: FreqProf
-Version: 1.0.0
+Version: 1.0.0.9000
 Authors@R: as.person(c(
     "Robert Epstein <re@aibrt.org> [ccp, cre]",
     "Thomas Boulier <thomas.boulier@polytechnique.edu> [aut]",
