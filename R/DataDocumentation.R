@@ -12,5 +12,4 @@
 #'   \item{V4}{Behavior 4}
 #' }
 #'
-#' @source import.data(filename = system.file("extdata", "S58-1-1.bin", package = "FreqProf"))
 "s58"

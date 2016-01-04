@@ -13,6 +13,7 @@
 #' \donttest{
 #' # Select a file
 #' import.data()
+#' 
 #' }
 import.data = function(filename = file.choose()){
   # this function reads a file, whose extension is either csv, bin or fpw,

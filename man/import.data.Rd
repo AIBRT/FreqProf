@@ -24,9 +24,6 @@ imports it as a data.frame.
 # Select a file
 import.data()
 
-# Open bin file included in package extdata folder
-filepath <- system.file("extdata", "S58-1-1.bin", package = "FreqProf")
-import.data(filepath)
 }
 }
 
