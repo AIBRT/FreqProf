@@ -10,7 +10,7 @@
 #'   \code{freqprof}).
 #' @export
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # Select a file
 #' import.data()
 #' 
