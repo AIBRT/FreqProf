@@ -20,10 +20,9 @@ This function reads a file, whose extension is either csv, bin or fpw, and
 imports it as a data.frame.
 }
 \examples{
-\donttest{
-# Select a file
-import.data()
-
-}
+ \donttest{
+ # Select a file
+ import.data()
+ }
 }
 

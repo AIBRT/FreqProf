@@ -4,15 +4,15 @@
 \alias{approxm}
 \title{Interpolate multiple columns of a \code{data.frame}}
 \usage{
-approxm(data, n, method = "linear")
+approxm(data1, n, method = "linear")
 }
 \arguments{
+\item{data1}{a \code{data.frame} with columns for interpolation}
+
 \item{n}{the number of points to interpolate}
 
 \item{method}{the method to interpolate by, \code{"linear"} or 
 \code{"spline"}}
-
-\item{data1}{a \code{data.frame} with columns for interpolation}
 }
 \value{
 Returns a \code{data.frame} of all \code{data1} variables
