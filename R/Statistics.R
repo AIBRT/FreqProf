@@ -9,7 +9,7 @@
 #'   \code{"spline"}
 #' @return Returns a \code{data.frame} of all \code{data1} variables
 #'   interpolated to \code{n} rows.
-#' @seealso \code{\link{ks.test}} is the underlying function and has more
+#' @seealso \code{\link{approx}} is the underlying function and has more
 #'   options
 #' @export
 #' 

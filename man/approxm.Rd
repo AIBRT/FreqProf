@@ -22,7 +22,7 @@ Returns a \code{data.frame} of all \code{data1} variables
 Interpolate multiple columns of a \code{data.frame}
 }
 \seealso{
-\code{\link{ks.test}} is the underlying function and has more
+\code{\link{approx}} is the underlying function and has more
   options
 }
 
