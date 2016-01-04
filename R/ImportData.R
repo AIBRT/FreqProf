@@ -10,13 +10,9 @@
 #'   \code{freqprof}).
 #' @export
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' # Select a file
 #' import.data()
-#' 
-#' # Open bin file included in package extdata folder
-#' filepath <- system.file("extdata", "S58-1-1.bin", package = "FreqProf")
-#' import.data(filepath)
 #' }
 import.data = function(filename = file.choose()){
   # this function reads a file, whose extension is either csv, bin or fpw,
