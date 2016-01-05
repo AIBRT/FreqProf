@@ -77,7 +77,7 @@ plot.freqprof = function(data.freqprof,
                          minor_breaks = round(seq(xmin, xmax, by=tick.every)),
                          breaks = round(seq(xmin, xmax, by=tick.every*label.every))) +
       scale_color_discrete(name="Behavior") +
-      theme(axis.text = element_text(size = 12, colour = "#3f3f3f"),
+      theme(axis.text = element_text(size = 12, colour = "#3f3f3f", margin = unit(0.5, "cm")),
             axis.title.x = element_text(size = 15, face = "bold", vjust = -.5),
             axis.title.y = element_text(size = 15, face = "bold", vjust = 1.5),
             title = element_text(size = 17, face = "bold", vjust = 2),
@@ -87,8 +87,7 @@ plot.freqprof = function(data.freqprof,
             panel.grid.minor = element_line(colour = "#e9e9e9"),
             axis.line = element_line(color = "#a8a8a8"),
             axis.ticks = element_line(colour = "black", size = 1),
-            axis.ticks.length = unit(-0.25, "cm"),
-            axis.ticks.margin = unit(0.5, "cm"))
+            axis.ticks.length = unit(-0.25, "cm"))
     
     if(panel.in){
       p = p + geom_vline(xintercept = x.panel.left)
