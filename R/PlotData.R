@@ -22,8 +22,8 @@
 #' @export
 #' @examples
 #' data(s58)
-#' plot.freqprof(freqprof(s58))
-plot.freqprof = function(data.freqprof,
+#' plot_freqprof(freqprof(s58))
+plot_freqprof = function(data.freqprof,
                          yAxis=NULL,
                          xAxisUnits = "sec",
                          panel.in = T,
