@@ -93,8 +93,8 @@ plot_freqprof = function(data.freqprof,
     
     if(multiPlot) {
       plotBehavior = function(j){
-        plot(t,
-             freqprof[,j],
+        plot(x = t,
+             y = freqprof[,j],
              type='l',
              col=cbbPalette[(j %% length(cbbPalette))+1],
              ylim = c(0,max(freqprof)),
@@ -124,8 +124,8 @@ plot_freqprof = function(data.freqprof,
       mtext(yAxis, side = 2, outer = TRUE,cex = 0.7, line = 2.2)
     }
     else {
-      plot(t,
-           freqprof[,1],
+      plot(x = t,
+           y = freqprof[,1],
            type = 'l',
            col = cbbPalette[1],
            ylim = c(0,max(freqprof)),
