@@ -67,7 +67,15 @@ plot_freqprof = function(data.freqprof,
     res.melt <- melt(res, id = "time")
     
     # Graphing function
-    p <- ggplot_fp(res.melt)
+    p <- ggplot_fp(res.melt, 
+                   resolution = resolution, 
+                   step = step,
+                   yAxis = yAxis,
+                   xAxisUnits = xAxisUnits,
+                   xmin = xmin,
+                   xmax = xmax,
+                   tick.every = tick.every,
+                   label.every = label.every)
     
     if(panel.in){
       p = p + geom_vline(xintercept = x.panel.left)
@@ -157,7 +165,15 @@ plot_freqprof = function(data.freqprof,
   }
 }
 
-ggplot_fp <- function(data1) {
+ggplot_fp <- function(data1, 
+                      resolution = resolution, 
+                      step = step,
+                      yAxis = yAxis,
+                      xAxisUnits = xAxisUnits,
+                      xmin = xmin,
+                      xmax = xmax,
+                      tick.every = tick.every,
+                      label.every = label.every) {
   
   p <- ggplot(data1,
               aes(x = time, y = value, 
