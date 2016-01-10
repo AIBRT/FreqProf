@@ -12,9 +12,9 @@
 #' @examples
 #'  \donttest{
 #'  # Select a file
-#'  import.data()
+#'  import_data(filename = system.file("extdata/S58-1-1.bin", package = "FreqProf"))
 #'  }
-import.data = function(filename = file.choose()){
+import_data = function(filename = file.choose()){
   # this function reads a file, whose extension is either csv, bin or fpw,
   # and imports it as a data.frame
   

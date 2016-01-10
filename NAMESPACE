@@ -3,7 +3,7 @@
 export(approxm)
 export(cor.testm)
 export(freqprof)
-export(import.data)
+export(import_data)
 export(ks.testm)
 export(movfun)
 export(plot_freqprof)
