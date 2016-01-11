@@ -2,20 +2,20 @@
 % Please edit documentation in R/ShapeData.R
 \name{radj}
 \alias{radj}
-\title{Internal function.}
+\title{Internal function for Resolution Adjustment}
 \usage{
 radj(x, r)
 }
 \arguments{
-\item{x}{data}
+\item{x}{data data passed from \code{\link{freqprof}}}
 
-\item{r}{resolution}
+\item{r}{resolution passed from \code{\link{freqprof}}}
 }
 \value{
-Helpful for \code{movfun}.
+Resolution adjustment.
 }
 \description{
-Internal function.
+Internal function in \code{\link{freqprof}} that is used to modify data resolution.
 }
 \examples{
 radj(as.numeric(runif(10)>.5),2)

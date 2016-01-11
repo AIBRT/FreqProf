@@ -2,7 +2,7 @@
 % Please edit documentation in R/ShapeData.R
 \name{movfun}
 \alias{movfun}
-\title{Moving function}
+\title{Internal function for Generating Moving Sum or Proportion}
 \usage{
 movfun(x, n, s, r, fun)
 }
@@ -18,11 +18,12 @@ movfun(x, n, s, r, fun)
 \item{fun}{"sum" or "proportion"}
 }
 \value{
-Used for computing moving function. Returns a list containing the
-  processed data into $movfun, and the associated panels into $panels.
+Returns a list containing the processed data into $movfun, and the 
+  associated panels into $panels. Passes list to \code{\link{freqprof}}.
 }
 \description{
-Moving function
+Internal function in \code{\link{freqprof}} that is used to generate moving 
+sum or proportion data.
 }
 \examples{
 movfun(as.numeric(runif(10)>.5),2,1,1,"sum")

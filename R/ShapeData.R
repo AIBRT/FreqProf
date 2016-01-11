@@ -1,7 +1,9 @@
 #' Convert data to moving sum/prop.
 #' 
-#' @param data.behavior a data.frame containing the 0's and 1's in each column
-#' @param window the window's length
+#' @param data.behavior a data.frame containing occurrence/nonoccurrence data in
+#'   binary (0/1) format
+#' @param window the window length to use in computing a moving sum or
+#'   proportion
 #' @param step the number of bins of which the data will be translated.
 #' @param resolution the number of points contained in a bin
 #' @param which giving the moving function to apply: sum or proportion
@@ -38,12 +40,13 @@ freqprof = function(data.behavior,
                    class = "freqprof"))
 }
 
-#' Internal function.
+#' Internal function for Resolution Adjustment
 #' 
-#' @param x data
-#' @param r resolution
-#' @return Helpful for \code{movfun}.
-#' @export
+#' Internal function in \code{\link{freqprof}} that is used to modify data resolution.
+#' 
+#' @param x data data passed from \code{\link{freqprof}}
+#' @param r resolution passed from \code{\link{freqprof}}
+#' @return Resolution adjustment.
 #' @examples
 #' radj(as.numeric(runif(10)>.5),2)
 radj <- function(x, r) {
@@ -59,16 +62,18 @@ radj <- function(x, r) {
   return(adj)
 }
 
-#' Moving function
+#' Internal function for Generating Moving Sum or Proportion
+#' 
+#' Internal function in \code{\link{freqprof}} that is used to generate moving 
+#' sum or proportion data.
 #' 
 #' @param x data
 #' @param n window length
 #' @param s step
 #' @param r resolution
 #' @param fun "sum" or "proportion"
-#' @return Used for computing moving function. Returns a list containing the
-#'   processed data into $movfun, and the associated panels into $panels.
-#' @export
+#' @return Returns a list containing the processed data into $movfun, and the 
+#'   associated panels into $panels. Passes list to \code{\link{freqprof}}.
 #' @examples
 #' movfun(as.numeric(runif(10)>.5),2,1,1,"sum")
 movfun = function(x,n,s,r,fun){
