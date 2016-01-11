@@ -57,7 +57,7 @@ shinyServer(function(input, output, session) {
                              which = input$which)
 
     # plotting
-    plot(data.freqprof,
+    plot_freqprof(data.freqprof,
          gg=input$ggplot,
          panel.in = input$panel.in,
          panel.out = input$panel.out,
