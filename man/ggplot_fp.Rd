@@ -9,26 +9,29 @@ ggplot_fp(data1, resolution = resolution, step = step, yAxis = yAxis,
   tick.every = tick.every, label.every = label.every)
 }
 \arguments{
-\item{data1}{}
+\item{data1}{data formated into \code{freqprof} class.}
 
-\item{resolution}{}
+\item{resolution}{resolution of \code{freqprof} data}
 
-\item{step}{}
+\item{step}{step size of \code{freqprof} data}
 
-\item{yAxis}{}
+\item{yAxis}{a string providing a label for the y-axis.}
 
-\item{xAxisUnits}{}
+\item{xAxisUnits}{a string indicating which unit has been used. By default, 
+"sec".}
 
-\item{xmin}{}
+\item{xmin}{x-axis minimum value}
 
-\item{xmax}{}
+\item{xmax}{x-axis maximum value}
 
-\item{tick.every}{}
+\item{tick.every}{the spacing between each tick. By default, N/30 where N is 
+the number of time units.}
 
-\item{label.every}{}
+\item{label.every}{label every X ticks, where X = label.every. By default, 
+label.every = 3.}
 }
 \value{
-
+A ggplot of the frequency profile data in \code{data1}
 }
 \description{
 Internal ggplot Wrapper to Graph Frequency Profiles

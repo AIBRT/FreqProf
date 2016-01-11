@@ -167,17 +167,19 @@ plot_freqprof = function(data.freqprof,
 
 #' Internal ggplot Wrapper to Graph Frequency Profiles
 #' 
-#' @param data1 
-#' @param resolution 
-#' @param step 
-#' @param yAxis 
-#' @param xAxisUnits 
-#' @param xmin 
-#' @param xmax 
-#' @param tick.every 
-#' @param label.every 
-#'
-#' @return ggplot Frequency Profiles
+#' @param data1 data formated into \code{freqprof} class.
+#' @param resolution resolution of \code{freqprof} data
+#' @param step step size of \code{freqprof} data
+#' @param yAxis a string providing a label for the y-axis.
+#' @param xAxisUnits a string indicating which unit has been used. By default, 
+#'   "sec".
+#' @param xmin x-axis minimum value
+#' @param xmax x-axis maximum value
+#' @param tick.every the spacing between each tick. By default, N/30 where N is 
+#'   the number of time units.
+#' @param label.every label every X ticks, where X = label.every. By default, 
+#'   label.every = 3.
+#' @return A ggplot of the frequency profile data in \code{data1}
 #' 
 ggplot_fp <- function(data1, 
                       resolution = resolution, 
@@ -192,13 +194,13 @@ ggplot_fp <- function(data1,
   p <- ggplot(data1,
               aes(x = time, y = value, 
                   colour = variable, group = variable)) + 
-    geom_line(size = .8) +
+    geom_line(size = 0.8) +
     labs(title = "Frequency Profile") +
     xlab(paste('Time (',resolution * step,' ',xAxisUnits,')',sep="")) +
     ylab(paste(yAxis)) +
     scale_x_continuous(limits = c(xmin, xmax),
-                       minor_breaks = round(seq(xmin, xmax, by=tick.every)),
-                       breaks = round(seq(xmin, xmax, by=tick.every*label.every))) +
+                       minor_breaks = round(seq(xmin, xmax, by = tick.every)),
+                       breaks = round(seq(xmin, xmax, by = tick.every * label.every))) +
     scale_color_discrete(name="Behavior") +
     theme(axis.text.x = element_text(size = 12, colour = "#3f3f3f", 
                                      margin = margin(t = 0.4, unit = "cm")),
@@ -210,11 +212,12 @@ ggplot_fp <- function(data1,
                                       margin = margin(r = 0.4, unit = "cm")),
           title = element_text(size = 17, face = "bold"),
           legend.text = element_text(size = 12),
-          panel.background = element_rect(fill = '#f6f6f6'),
+          panel.background = element_rect(fill = "#f6f6f6"),
           panel.grid.major = element_line(colour = "#e9e9e9"),
           panel.grid.minor = element_line(colour = "#e9e9e9"),
           axis.line = element_line(color = "#a8a8a8"),
           axis.ticks = element_line(colour = "black", size = 0.5),
           axis.ticks.length = unit(-0.2, "cm"))
+  
   return(p)
 }
