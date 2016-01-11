@@ -165,6 +165,20 @@ plot_freqprof = function(data.freqprof,
   }
 }
 
+#' Internal ggplot Wrapper to Graph Frequency Profiles
+#' 
+#' @param data1 
+#' @param resolution 
+#' @param step 
+#' @param yAxis 
+#' @param xAxisUnits 
+#' @param xmin 
+#' @param xmax 
+#' @param tick.every 
+#' @param label.every 
+#'
+#' @return ggplot Frequency Profiles
+#' 
 ggplot_fp <- function(data1, 
                       resolution = resolution, 
                       step = step,
