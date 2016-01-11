@@ -47,8 +47,6 @@ freqprof = function(data.behavior,
 #' @param x data data passed from \code{\link{freqprof}}
 #' @param r resolution passed from \code{\link{freqprof}}
 #' @return Resolution adjustment.
-#' @examples
-#' radj(as.numeric(runif(10)>.5),2)
 radj <- function(x, r) {
   # x is data
   # r is resolution
@@ -67,15 +65,13 @@ radj <- function(x, r) {
 #' Internal function in \code{\link{freqprof}} that is used to generate moving 
 #' sum or proportion data.
 #' 
-#' @param x data
-#' @param n window length
-#' @param s step
-#' @param r resolution
-#' @param fun "sum" or "proportion"
+#' @param x data passed from \code{\link{freqprof}}
+#' @param n window length passed from \code{\link{freqprof}}
+#' @param s step size passed from \code{\link{freqprof}}
+#' @param r resolution passed from \code{\link{freqprof}}
+#' @param fun "sum" or "proportion" passed from \code{\link{freqprof}}
 #' @return Returns a list containing the processed data into $movfun, and the 
 #'   associated panels into $panels. Passes list to \code{\link{freqprof}}.
-#' @examples
-#' movfun(as.numeric(runif(10)>.5),2,1,1,"sum")
 movfun = function(x,n,s,r,fun){
   if (r > 1){
     x <- radj(x, r)

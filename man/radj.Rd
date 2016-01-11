@@ -17,7 +17,4 @@ Resolution adjustment.
 \description{
 Internal function in \code{\link{freqprof}} that is used to modify data resolution.
 }
-\examples{
-radj(as.numeric(runif(10)>.5),2)
-}
 
