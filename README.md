@@ -13,6 +13,6 @@ functions that allow the importation of data encoded in .bin, .fpw, and .csv for
 
 ### Getting Started
 Install the current version of the package by using `devtools::install_github("AIBRT/FreqProf")`, and then start the 
-Shiny App example with `runExample()` after you've installed the package.
+Shiny App example with `runEx()` after you've installed the package.
 
 Copyright American Institute for Behavioral Research and Technology (http://aibrt.org/).
