@@ -38,7 +38,7 @@ import_data = function(filename = file.choose()){
 #' @return A data.frame giving the raw data.
 #' @export
 #' @examples
-#' read.bin(file.choose())
+#' read.bin(system.file("extdata/S58-1-1.bin", package = "FreqProf"))
 read.bin = function(filename){
   
   # scanning the file, line by line
@@ -69,8 +69,6 @@ read.bin = function(filename){
 #' @param filename a string indicating the path of the file.
 #' @return A data.frame giving the raw data.
 #' @export
-#' @examples
-#' read.bin(file.choose())
 read.fpw = function(filename){
   
   file.scan = scan(file = filename,
