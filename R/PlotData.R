@@ -67,7 +67,7 @@ plot_freqprof = function(data.freqprof,
     res.melt <- melt(res, id = "time")
     
     # Graphing function
-    p <- ggplot_fp(res.melt, 
+    p <- ggplot_fp(data1 = res.melt, 
                    resolution = resolution, 
                    step = step,
                    yAxis = yAxis,
@@ -181,7 +181,7 @@ plot_freqprof = function(data.freqprof,
 #'   label.every = 3.
 #' @return A ggplot of the frequency profile data in \code{data1}
 #' 
-ggplot_fp <- function(data1, 
+ggplot_fp <- function(data1 = res.melt, 
                       resolution = resolution, 
                       step = step,
                       yAxis = yAxis,
