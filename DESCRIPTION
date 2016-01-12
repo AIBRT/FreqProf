@@ -1,12 +1,12 @@
 Package: FreqProf
 Version: 1.0.0.9000
-Authors@R: as.person(c(
-    "Robert Epstein <re@aibrt.org> [ccp, cre]",
-    "Thomas Boulier <thomas.boulier@polytechnique.edu> [aut]",
-    "Jonathan Mejia <mejiajon@yahoo.com> [ctb]",
-    "Ronald Robertson <rrobertson@aibrt.org> [aut]",
-    "AIBRT <info@aibrt.org> [cph]"
-    ))
+Authors@R: c(
+    person("Robert", "Epstein",, "re@aibrt.org", c("cre", "ccp")),
+    person("Ronald", "Robertson", "E", "rrobertson@aibrt.org", "aut"),
+    person("Thomas", "Boulier",, "thomas.boulier@polytechnique.edu", "aut"),
+    person("Jonathan", "Mejia",, "mejiajon@yahoo.com", "ctb"),
+    person("AIBRT", email = "info@aibrt.org", role = "cph")
+    )
 Title: Frequency Profiles Computing and Plotting
 Description: This package aims at computing and plotting frequency profiles from
     data encoded into .bin, .fpw, and .csv formats. It has a user-friendly interface
