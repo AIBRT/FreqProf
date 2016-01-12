@@ -70,7 +70,6 @@ read.bin = function(filename){
 #' 
 #' @param filename a string indicating the path of the file.
 #' @return A data.frame giving the raw data.
-#' @export
 read.fpw = function(filename){
   
   file.scan = scan(file = filename,
