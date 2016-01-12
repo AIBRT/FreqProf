@@ -2,7 +2,9 @@
 #'
 #' @export
 #' @examples
-#' runEx()
+#' \donttest{
+#'  runEx()
+#' }
 runEx <- function() {
   appDir <- system.file("shinyapp", package = "FreqProf")
   if (appDir == "") {
