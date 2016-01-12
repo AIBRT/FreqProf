@@ -38,7 +38,9 @@ import_data = function(filename = file.choose()){
 #' @return A data.frame giving the raw data.
 #' @export
 #' @examples
-#' read.bin(system.file("extdata/S58-1-1.bin", package = "FreqProf"))
+#'  \donttest{
+#'  read.bin(system.file("extdata/S58-1-1.bin", package = "FreqProf"))
+#'  }
 read.bin = function(filename){
   
   # scanning the file, line by line
