@@ -15,8 +15,8 @@ Description: This package aims at computing and plotting frequency profiles from
 License: GPL-3
 Maintainer: Ronald Robertson <rrobertson@aibrt.org>
 Depends: R (>= 3.2.2)
-Imports:
-    reshape2,
-    ggplot2,
+Imports: 
+    reshape2, 
+    ggplot2, 
     shiny
 RoxygenNote: 5.0.1
