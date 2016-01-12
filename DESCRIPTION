@@ -2,7 +2,7 @@ Package: FreqProf
 Version: 1.0.0.9000
 Authors@R: c(
     person("Robert", "Epstein",, "re@aibrt.org", c("cre", "ccp")),
-    person("Ronald", "Robertson", "E", "rrobertson@aibrt.org", "aut"),
+    person("Ronald E.", "Robertson",, "rrobertson@aibrt.org", "aut"),
     person("Thomas", "Boulier",, "thomas.boulier@polytechnique.edu", "aut"),
     person("Jonathan", "Mejia",, "mejiajon@yahoo.com", "ctb"),
     person("AIBRT", email = "info@aibrt.org", role = "cph")
@@ -14,9 +14,12 @@ Description: This package aims at computing and plotting frequency profiles from
     prior on R programming.
 License: GPL-3
 Maintainer: Ronald Robertson <rrobertson@aibrt.org>
-Depends: R (>= 3.2.2)
+Depends: 
+    R (>= 3.2.2)
 Imports: 
     reshape2, 
     ggplot2, 
     shiny
+BugReports: https://github.com/AIBRT/FreqProf/issues
+URL: https://githun.com/AIBRT/FreqProf
 RoxygenNote: 5.0.1
