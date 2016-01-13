@@ -18,6 +18,6 @@ Imports:
     reshape2, 
     ggplot2, 
     shiny
+URL: https://github.com/AIBRT/FreqProf
 BugReports: https://github.com/AIBRT/FreqProf/issues
-
 RoxygenNote: 5.0.1
