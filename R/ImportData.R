@@ -15,7 +15,7 @@
 #'  importData(filename = system.file("extdata/S58-1-1.bin", 
 #'             package = "FreqProf"))
 #'  }
-importData = function (filename = file.choose()){
+importData = function(filename = file.choose()) {
   # this function reads a file, whose extension is either csv, bin or fpw,
   # and imports it as a data.frame
   
@@ -41,7 +41,7 @@ importData = function (filename = file.choose()){
 #' @export
 #' @examples
 #' read.bin (file.choose())
-read.bin = function (filename){
+read.bin = function(filename) {
   
   # scanning the file, line by line
   file.scan = scan (file = filename,
@@ -51,21 +51,21 @@ read.bin = function (filename){
   
   # looking for the line that starts with an asterisk
   N = which (sapply (X = 1:length (file.scan), 
-                   FUN = function (x) {
+                   FUN = function(x) {
                      substr (file.scan[x], 1, 1) == "*"
                      }
                      ))
   file.data = file.scan [(N + 2):length (file.scan)]
   
   # removing "<" at the end of line
-  for (j in 1:length (file.data)){
+  for (j in 1:length (file.data)) {
     file.data[j] = substr (file.data[j], 1, nchar (file.data[j]) - 1)
   }
   
   # converting these strings into a matrix
   result = matrix (data = NA, nrow = nchar (file.data[1]), 
                    ncol = length (file.data))
-  for(j in 1:dim (result)[2]) {
+  for (j in 1:dim (result)[2]) {
     result[, j] = sapply (X = 1:nchar (file.data[j]), 
                           FUN = function(x) {
                             as.numeric (substr (file.data[j], x, x))
@@ -83,7 +83,7 @@ read.bin = function (filename){
 #' @export
 #' @examples
 #' read.bin(file.choose())
-read.fpw = function (filename){
+read.fpw = function(filename) {
   
   file.scan = scan (file = filename,
                    what = "character",
@@ -91,18 +91,18 @@ read.fpw = function (filename){
                    quiet = T)
   # looking for the line that indicates "[DATA]"
   N = which (sapply (X = 1:length (file.scan), 
-                     FUN = function (x) {
+                     FUN = function(x) {
                        file.scan[x] == "[DATA]"
                        }
                      ))
   
   # converting these strings into a data.frame
-  result = read.table (file = filename, skip = N + 2, 
-                       sep = " ", strip.white = F)
+  result = read.table(file = filename, skip = N + 2, 
+                      sep = " ", strip.white = F)
   
   # as the lines begin with a " ", the first column is read as NA
   result = result[, 2:ncol (result)]
-  names (result) = paste("V", 1:ncol (result), sep = "")
+  names(result) = paste("V", 1:ncol (result), sep = "")
   
   return (result)
 }

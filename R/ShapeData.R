@@ -11,13 +11,13 @@
 #' data(s58)
 #' freqprof(s58)
 freqprof = function(data.behavior,
-                    window = round (0.25 * nrow(data.behavior)),
+                    window = round(0.25 * nrow(data.behavior)),
                     step = 1,
                     resolution = 1,
                     which = c('sum','proportion')){
   # selecting the appropriate moving function, according to the variable 'which'
   # by default, which is 'sum'
-  if (length (which) > 1) which = 'sum'
+  if (length(which) > 1) which = 'sum'
   
   if (!(which %in% c('sum', 'proportion'))) {
     stop ("possible values for variable 'which' are c('sum','proportion').")
@@ -25,7 +25,7 @@ freqprof = function(data.behavior,
   
   # computing frequency profile
   freqprof = as.data.frame(apply(data.behavior, MARGIN = 2, 
-                                 FUN = function (x){
+                                 FUN = function(x) {
                                    movfun(x, n = window, s = step, 
                                           r = resolution, fun = which)$movfun
                                    }))
@@ -83,7 +83,7 @@ movfun = function(x, n, s, r, fun) {
   
   fun = switch(fun,
                sum = sum,
-               proportion = function(y){
+               proportion = function(y) {
                             sum(y) / n
                  })
   
