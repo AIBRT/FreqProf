@@ -1,9 +1,10 @@
 Package: FreqProf
 Version: 0.0.1
+Date: 2016-01-13
 Authors@R: c(
-    person("Robert", "Epstein",, "re@aibrt.org", "ccp"),
-    person("Ronald E.", "Robertson",, "rrobertson@aibrt.org", c("cre", "aut")),
+    person("Robert", "Epstein",, "re@aibrt.org", c("aut", "ccp"), comment = "Author of the Frequency Profile methodology"),
     person("Thomas", "Boulier",, "thomas.boulier@polytechnique.edu", "aut"),
+    person(c("Ronald", "E."), "Robertson",, "rrobertson@aibrt.org", c("cre", "aut")),
     person("Jonathan", "Mejia",, "mejiajon@yahoo.com", "ctb"),
     person("AIBRT", email = "info@aibrt.org", role = "cph")
     )
@@ -11,13 +12,13 @@ Title: Frequency Profiles Computing and Plotting
 Description: Tools for computing and plotting frequency profiles - an informative method for 
     visualizing the occurrence/nonoccurrence behavior data of individuals in real time or post-hoc.
 License: GPL-3
-Maintainer: Ronald Robertson <rrobertson@aibrt.org>
 Depends: 
     R (>= 3.2.2)
 Imports: 
     reshape2, 
     ggplot2, 
     shiny
+LazyData: true
 URL: https://github.com/AIBRT/FreqProf
 BugReports: https://github.com/AIBRT/FreqProf/issues
 RoxygenNote: 5.0.1
