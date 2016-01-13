@@ -2,7 +2,7 @@
 * windows x86-64, R 3.2.3
 
 ## R CMD check results
-There were no NOTES, ERRORs, or WARNINGs. 
+There were no ERRORs, WARNINGs, or NOTEs. 
 
 ## Downstream dependencies
-I have also run R CMD check on all 22 downstream dependencies of FreqProf. 
+There are currently no downstream dependencies for FreqProf. 
