@@ -86,8 +86,8 @@ cor.testm <- function (data1, data2, method) {
   }
   
   # Reshape data
-  newdata <- data.frame (t (sapply (newdata, c)))
-  newdata <- apply (newdata, 2, unlist)
+  newdata <- data.frame(t(sapply(newdata, c)))
+  newdata <- apply(newdata, 2, unlist)
   
   # Split conf.int (double length vector) and remove original
   if (method == "pearson") {

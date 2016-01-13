@@ -53,7 +53,7 @@ plotFreqprof = function(data.freqprof,
   xmax = ifelse(test = panel.out, yes = max(t), no = x.panel.right)
   
   # plotting results
-  if(is.null(yAxis)){
+  if (is.null(yAxis)) {
     yAxis = switch(type,
                    sum = 'Moving sum',
                    proportion = 'Moving proportion')
@@ -63,22 +63,22 @@ plotFreqprof = function(data.freqprof,
   cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", 
                   "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
   
-  if(gg){
+  if (gg) {
 
     res.melt <- melt(res, id = "time")
     
     # Graphing function
     p <- ggplotFreqProf(res.melt, 
-                   resolution = resolution, 
-                   step = step,
-                   yAxis = yAxis,
-                   xAxisUnits = xAxisUnits,
-                   xmin = xmin,
-                   xmax = xmax,
-                   tick.every = tick.every,
-                   label.every = label.every)
+                        resolution = resolution, 
+                        step = step,
+                        yAxis = yAxis,
+                        xAxisUnits = xAxisUnits,
+                        xmin = xmin,
+                        xmax = xmax,
+                        tick.every = tick.every,
+                        label.every = label.every)
     
-    if (panel.in){
+    if (panel.in) {
       p = p + geomVertline(xintercept = x.panel.left)
     }
     
@@ -90,22 +90,22 @@ plotFreqprof = function(data.freqprof,
       p = p + facetGrid(variable ~ .) + theme (legend.position = "none")
     }
     
-    print (p)
-  } else{
+    print(p)
+  } else {
     
     # no ggplot
     
-    if (is.null(ncol(freqprof))){
+    if (is.null(ncol(freqprof))) {
       # case of only one column selected
       freqprof = as.data.frame(freqprof)
     }
     
-    if(multiPlot) {
-      plotBehavior = function(j){
+    if (multiPlot) {
+      plotBehavior = function(j) {
         plot(x = t,
              y = freqprof[, j],
-             type='l',
-             col=cbbPalette[(j %% length(cbbPalette)) + 1],
+             type = 'l',
+             col = cbbPalette[(j %% length(cbbPalette)) + 1],
              ylim = c(0, max(freqprof)),
              xlim = c(xmin, xmax),
              xlab = '',
@@ -115,17 +115,17 @@ plotFreqprof = function(data.freqprof,
         axis(1, at = ax, labels = F)
         lab = ax[seq(1, n.minor, by = label.every)]
         axis(1, at = lab, labels = T)
-        if(panel.in){
+        if (panel.in) {
           abline(v = x.panel.left)
         } 
-        if(panel.out){
+        if (panel.out) {
           abline(v = x.panel.right)
         }
       }
       
       par(mfrow = c(ncol(freqprof), 1))
       par(cex = 0.6)
-      par(mar = c(2,2,2,2), oma = c(4, 4, 0.5, 0.5))
+      par(mar = c(2, 2, 2, 2), oma = c(4, 4, 0.5, 0.5))
       
       for(j in 1:ncol(freqprof)) plotBehavior(j)
       
@@ -145,10 +145,10 @@ plotFreqprof = function(data.freqprof,
            xaxt = 'n')
       n.minor = length(ax <- seq(from = xmin, to = xmax, by = tick.every))
       axis(1, at = ax, labels = F)
-      lab = ax[seq(1, n.minor, by=label.every)]
+      lab = ax[seq(1, n.minor, by = label.every)]
       axis(1, at = lab, labels = T)
       
-      if(ncol(freqprof) > 1){
+      if (ncol(freqprof) > 1) {
         for(j in 2:ncol(freqprof)){
           lines(t,
                 freqprof[, j],
@@ -156,10 +156,10 @@ plotFreqprof = function(data.freqprof,
                 col = cbbPalette[(j %% length(cbbPalette)) + 1])
         }
       }
-      if(panel.in){
+      if (panel.in) {
         abline(v = x.panel.left)
       } 
-      if(panel.out){
+      if (panel.out) {
         abline(v = x.panel.right)
       }
     }
@@ -182,14 +182,14 @@ plotFreqprof = function(data.freqprof,
 #' @return ggplot Frequency Profiles
 #' 
 ggplotFreqProf <- function(data1, 
-                      resolution = resolution, 
-                      step = step,
-                      yAxis = yAxis,
-                      xAxisUnits = xAxisUnits,
-                      xmin = xmin,
-                      xmax = xmax,
-                      tick.every = tick.every,
-                      label.every = label.every) {
+                          resolution = resolution, 
+                          step = step,
+                          yAxis = yAxis,
+                          xAxisUnits = xAxisUnits,
+                          xmin = xmin,
+                          xmax = xmax,
+                          tick.every = tick.every,
+                          label.every = label.every) {
   
   p <- ggplot(data1,
               aes(x = time, y = value, 
@@ -219,5 +219,5 @@ ggplotFreqProf <- function(data1,
           axis.line = elementLine(color = "#a8a8a8"),
           axis.ticks = elementLine(color = "black", size = 0.5),
           axis.ticks.length = unit(-0.2, "cm"))
-  return(p)
+  return (p)
 }
