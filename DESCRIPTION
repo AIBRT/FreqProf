@@ -2,7 +2,7 @@ Package: FreqProf
 Version: 0.0.1
 Authors@R: c(
     person("Robert", "Epstein",, "re@aibrt.org", "ccp"),
-    person("Ronald E.", "Robertson",, "rrobertson@aibrt.org", c("cre", "aut"),
+    person("Ronald E.", "Robertson",, "rrobertson@aibrt.org", c("cre", "aut")),
     person("Thomas", "Boulier",, "thomas.boulier@polytechnique.edu", "aut"),
     person("Jonathan", "Mejia",, "mejiajon@yahoo.com", "ctb"),
     person("AIBRT", email = "info@aibrt.org", role = "cph")
