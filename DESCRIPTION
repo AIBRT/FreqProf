@@ -9,8 +9,9 @@ Authors@R: c(
     person("AIBRT", email = "info@aibrt.org", role = "cph")
     )
 Title: Frequency Profiles Computing and Plotting
-Description: Tools for computing and plotting frequency profiles - an informative method for 
-    visualizing the occurrence/nonoccurrence behavior data of individuals in real time or post-hoc.
+Description: Tools for computing and plotting frequency profiles - an informative 
+    method for visualizing the occurrence/nonoccurrence data of an individual's 
+    behaviors in real time or post-hoc.
 License: GPL-3
 Depends: 
     R (>= 3.2.2)
