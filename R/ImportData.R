@@ -40,8 +40,15 @@ importData = function(filename = file.choose()) {
 #' @return A data.frame giving the raw data.
 #' @export
 #' @examples
+<<<<<<< HEAD
 #' read.bin (file.choose())
 read.bin = function(filename) {
+=======
+#'  \donttest{
+#'  read.bin(system.file("extdata/S58-1-1.bin", package = "FreqProf"))
+#'  }
+read.bin = function(filename){
+>>>>>>> upstream/master
   
   # scanning the file, line by line
   file.scan = scan (file = filename,
@@ -80,10 +87,14 @@ read.bin = function(filename) {
 #' 
 #' @param filename a string indicating the path of the file.
 #' @return A data.frame giving the raw data.
+<<<<<<< HEAD
 #' @export
 #' @examples
 #' read.bin(file.choose())
 read.fpw = function(filename) {
+=======
+read.fpw = function(filename){
+>>>>>>> upstream/master
   
   file.scan = scan (file = filename,
                    what = "character",

@@ -1,3 +1,7 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
-archive/
+.RData
+.Rhistory
+^archive$
+^cran-comments\.md$
+^revdep$

@@ -8,9 +8,11 @@ freqprof(data.behavior, window = round(0.25 * nrow(data.behavior)),
   step = 1, resolution = 1, which = c("sum", "proportion"))
 }
 \arguments{
-\item{data.behavior}{a data.frame containing the 0's and 1's in each column}
+\item{data.behavior}{a data.frame containing occurrence/nonoccurrence data in
+binary (0/1) format}
 
-\item{window}{the window's length}
+\item{window}{the window length to use in computing a moving sum or
+proportion}
 
 \item{step}{the number of bins of which the data will be translated.}
 

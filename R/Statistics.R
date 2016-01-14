@@ -1,7 +1,7 @@
 # Wrapper functions for applying linear interpolation, and correlation and 
 # kolmogorov-smirnov tests to multiple variables in separate datasets.
 
-#' Interpolate multiple columns of a \code{data.frame}
+#' Interpolate multiple columns of a data.frame
 #' 
 #' @param data1 a \code{data.frame} with columns for interpolation
 #' @param n the number of points to interpolate

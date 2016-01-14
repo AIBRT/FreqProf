@@ -16,6 +16,8 @@ A data.frame giving the raw data.
 Reads the data in the file "filename", which is supposed to be a .bin file
 }
 \examples{
-read.bin(file.choose())
+ \donttest{
+ read.bin(system.file("extdata/S58-1-1.bin", package = "FreqProf"))
+ }
 }
 

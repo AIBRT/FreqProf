@@ -2,7 +2,7 @@
 % Please edit documentation in R/Statistics.R
 \name{approxm}
 \alias{approxm}
-\title{Interpolate multiple columns of a \code{data.frame}}
+\title{Interpolate multiple columns of a data.frame}
 \usage{
 approxm(data1, n, method = "linear")
 }
@@ -19,7 +19,7 @@ Returns a \code{data.frame} of all \code{data1} variables
   interpolated to \code{n} rows.
 }
 \description{
-Interpolate multiple columns of a \code{data.frame}
+Interpolate multiple columns of a data.frame
 }
 \seealso{
 \code{\link{approx}} is the underlying function and has more

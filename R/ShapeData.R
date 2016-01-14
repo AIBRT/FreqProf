@@ -1,7 +1,9 @@
 #' Convert data to moving sum/prop.
 #' 
-#' @param data.behavior a data.frame containing the 0's and 1's in each column
-#' @param window the window's length
+#' @param data.behavior a data.frame containing occurrence/nonoccurrence data in
+#'   binary (0/1) format
+#' @param window the window length to use in computing a moving sum or
+#'   proportion
 #' @param step the number of bins of which the data will be translated.
 #' @param resolution the number of points contained in a bin
 #' @param which giving the moving function to apply: sum or proportion
@@ -43,14 +45,22 @@ freqprof = function(data.behavior,
                    class = "freqprof"))
 }
 
-#' Internal function.
+#' Internal function for Resolution Adjustment
 #' 
+<<<<<<< HEAD
 #' @param x data
 #' @param r resolution
 #' @return Helpful for \code{movfun}.
 #' @export
 #' @examples
 #' radj (as.numeric(runif(10) > 0.5), 2)
+=======
+#' Internal function in \code{\link{freqprof}} that is used to modify data resolution.
+#' 
+#' @param x data data passed from \code{\link{freqprof}}
+#' @param r resolution passed from \code{\link{freqprof}}
+#' @return Resolution adjustment.
+>>>>>>> upstream/master
 radj <- function(x, r) {
   # x is data
   # r is resolution
@@ -64,8 +74,9 @@ radj <- function(x, r) {
   return (adj)
 }
 
-#' Moving function
+#' Internal function for Generating Moving Sum or Proportion
 #' 
+<<<<<<< HEAD
 #' @param x data
 #' @param n window length
 #' @param s step
@@ -78,6 +89,20 @@ radj <- function(x, r) {
 #' movfun(as.numeric(runif(10) > 0.5), 2, 1, 1, "sum")
 movfun = function(x, n, s, r, fun) {
   if (r > 1) {
+=======
+#' Internal function in \code{\link{freqprof}} that is used to generate moving 
+#' sum or proportion data.
+#' 
+#' @param x data passed from \code{\link{freqprof}}
+#' @param n window length passed from \code{\link{freqprof}}
+#' @param s step size passed from \code{\link{freqprof}}
+#' @param r resolution passed from \code{\link{freqprof}}
+#' @param fun "sum" or "proportion" passed from \code{\link{freqprof}}
+#' @return Returns a list containing the processed data into $movfun, and the 
+#'   associated panels into $panels. Passes list to \code{\link{freqprof}}.
+movfun = function(x,n,s,r,fun){
+  if (r > 1){
+>>>>>>> upstream/master
     x <- radj(x, r)
   }
   

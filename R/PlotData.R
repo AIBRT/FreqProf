@@ -1,29 +1,33 @@
 #' Plot Frequency Profiles.
 #' 
-#' Plot data that has already been converted to class \code{freqprof} with 
-#'\code{\link{freqprof}}.
+#' Use \code{plot_freqprof} to plot frequency profile data generated from 
+#' \code{\link{freqprof}}.
 #' 
-#' @param data.freqprof data formated into \code{freqprof} class.
-#' @param yAxis a string giving the legend of the y-axis.
-#' @param xAxisUnits a string indicating which unit has been used. By default, 
-#'   "sec".
-#' @param panel.in a boolean indicating if the first panel has to be plotted.
-#' @param panel.out a boolean indicating if the third panel has to be plotted
-#' @param gg if TRUE, will use the 'ggplot2' package. By default, gg = FALSE.
-#' @param multiPlot if TRUE, will plot each behavior in a distinct panel. By 
-#'   default, multiPlot = FALSE.
+#' @param data.freqprof data formated into class \code{freqprof}.
+#' @param yAxis a string labelling the y-axis, defaults to `data.freqprof$type`.
+#' @param xAxisUnits a string indicating x-axis units, defaults to "sec".
+#' @param panel.in if \code{FALSE} the first panel of the frequency profile is not plotted.
+#' @param panel.out if \code{FALSE} the third panel of the frequency profile is not plotted.
+#' @param gg if \code{TRUE}, will use \code{ggplot2} to plot frequency profiles.
+#' @param multiPlot if \code{TRUE}, will plot each behavior in its own panel.
 #' @param tick.every the spacing between each tick. By default, N/30 where N is 
 #'   the number of time units.
 #' @param label.every label every X ticks, where X = label.every. By default, 
 #'   label.every = 3.
-#' @return The function plots the data but does not return anything.
+#' @return 
+#'    Returns a frequency profiles plot.
 #' @importFrom reshape2 melt
 #' @import ggplot2
 #' @export
 #' @examples
 #' data(s58)
+<<<<<<< HEAD
 #' plotFreqprof (freqprof(s58))
 plotFreqprof = function(data.freqprof,
+=======
+#' plot_freqprof(freqprof(s58))
+plot_freqprof = function(data.freqprof,
+>>>>>>> upstream/master
                          yAxis = NULL,
                          xAxisUnits = "sec",
                          panel.in = T,
@@ -52,8 +56,13 @@ plotFreqprof = function(data.freqprof,
   xmin = ifelse(test = panel.in, yes = min(t), no = x.panel.left)
   xmax = ifelse(test = panel.out, yes = max(t), no = x.panel.right)
   
+<<<<<<< HEAD
   # plotting results
   if (is.null(yAxis)) {
+=======
+  # If no custom yAxis label given, label according to data.freqprof$type
+  if(is.null(yAxis)){
+>>>>>>> upstream/master
     yAxis = switch(type,
                    sum = 'Moving sum',
                    proportion = 'Moving proportion')
@@ -68,6 +77,7 @@ plotFreqprof = function(data.freqprof,
     res.melt <- melt(res, id = "time")
     
     # Graphing function
+<<<<<<< HEAD
     p <- ggplotFreqProf(res.melt, 
                         resolution = resolution, 
                         step = step,
@@ -77,6 +87,17 @@ plotFreqprof = function(data.freqprof,
                         xmax = xmax,
                         tick.every = tick.every,
                         label.every = label.every)
+=======
+    p <- ggplot_fp(data1 = res.melt, 
+                   resolution = resolution, 
+                   step = step,
+                   yAxis = yAxis,
+                   xAxisUnits = xAxisUnits,
+                   xmin = xmin,
+                   xmax = xmax,
+                   tick.every = tick.every,
+                   label.every = label.every)
+>>>>>>> upstream/master
     
     if (panel.in) {
       p = p + geomVertline(xintercept = x.panel.left)
@@ -169,17 +190,19 @@ plotFreqprof = function(data.freqprof,
 
 #' Internal ggplot Wrapper to Graph Frequency Profiles
 #' 
-#' @param data1 
-#' @param resolution 
-#' @param step 
-#' @param yAxis 
-#' @param xAxisUnits 
-#' @param xmin 
-#' @param xmax 
-#' @param tick.every 
-#' @param label.every 
-#'
-#' @return ggplot Frequency Profiles
+#' @param data1 data formated into \code{freqprof} class.
+#' @param resolution resolution of \code{freqprof} data
+#' @param step step size of \code{freqprof} data
+#' @param yAxis a string providing a label for the y-axis.
+#' @param xAxisUnits a string indicating which unit has been used. By default, 
+#'   "sec".
+#' @param xmin x-axis minimum value
+#' @param xmax x-axis maximum value
+#' @param tick.every the spacing between each tick. By default, N/30 where N is 
+#'   the number of time units.
+#' @param label.every label every X ticks, where X = label.every. By default, 
+#'   label.every = 3.
+#' @return A ggplot of the frequency profile data in \code{data1}
 #' 
 ggplotFreqProf <- function(data1, 
                           resolution = resolution, 
@@ -191,6 +214,7 @@ ggplotFreqProf <- function(data1,
                           tick.every = tick.every,
                           label.every = label.every) {
   
+<<<<<<< HEAD
   p <- ggplot(data1,
               aes(x = time, y = value, 
                   color = variable, group = variable)) + 
@@ -220,4 +244,38 @@ ggplotFreqProf <- function(data1,
           axis.ticks = elementLine(color = "black", size = 0.5),
           axis.ticks.length = unit(-0.2, "cm"))
   return (p)
+=======
+  p <- with(data1, {
+    ggplot(data1,
+           aes(x = time, 
+               y = value,
+               colour = variable, group = variable)) +
+      geom_line(size = 0.8) +
+      labs(title = "Frequency Profile") +
+      xlab(paste('Time (',resolution * step,' ',xAxisUnits,')',sep="")) +
+      ylab(paste(yAxis)) +
+      scale_x_continuous(limits = c(xmin, xmax),
+                         minor_breaks = round(seq(xmin, xmax, by = tick.every)),
+                         breaks = round(seq(xmin, xmax, by = tick.every * label.every))) +
+      scale_color_discrete(name="Behavior") +
+      theme(axis.text.x = element_text(size = 12, colour = "#3f3f3f",
+                                       margin = margin(t = 0.4, unit = "cm")),
+            axis.text.y = element_text(size = 12, colour = "#3f3f3f",
+                                       margin = margin(r = 0.4, unit = "cm")),
+            axis.title.x = element_text(size = 14, face = "bold",
+                                        margin = margin(t = 0.4, unit = "cm")),
+            axis.title.y = element_text(size = 14, face = "bold",
+                                        margin = margin(r = 0.4, unit = "cm")),
+            title = element_text(size = 17, face = "bold"),
+            legend.text = element_text(size = 12),
+            panel.background = element_rect(fill = "#f6f6f6"),
+            panel.grid.major = element_line(colour = "#e9e9e9"),
+            panel.grid.minor = element_line(colour = "#e9e9e9"),
+            axis.line = element_line(color = "#a8a8a8"),
+            axis.ticks = element_line(colour = "black", size = 0.5),
+            axis.ticks.length = unit(-0.2, "cm"))
+  })
+  
+  return(p)
+>>>>>>> upstream/master
 }

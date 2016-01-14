@@ -15,7 +15,4 @@ A data.frame giving the raw data.
 \description{
 Reads the data in the file "filename", which is supposed to be a .fpw file
 }
-\examples{
-read.bin(file.choose())
-}
 

@@ -10,6 +10,8 @@ runEx()
 Run interactive FreqProf example (Shiny App)
 }
 \examples{
-runEx()
+\donttest{
+ runEx()
+}
 }
 

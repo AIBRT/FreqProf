@@ -9,21 +9,19 @@ plot_freqprof(data.freqprof, yAxis = NULL, xAxisUnits = "sec",
   tick.every = round(length(data.freqprof$data$time) / 31), label.every = 3)
 }
 \arguments{
-\item{data.freqprof}{data formated into \code{freqprof} class.}
+\item{data.freqprof}{data formated into class \code{freqprof}.}
 
-\item{yAxis}{a string giving the legend of the y-axis.}
+\item{yAxis}{a string labelling the y-axis, defaults to `data.freqprof$type`.}
 
-\item{xAxisUnits}{a string indicating which unit has been used. By default, 
-"sec".}
+\item{xAxisUnits}{a string indicating x-axis units, defaults to "sec".}
 
-\item{panel.in}{a boolean indicating if the first panel has to be plotted.}
+\item{panel.in}{if \code{FALSE} the first panel of the frequency profile is not plotted.}
 
-\item{panel.out}{a boolean indicating if the third panel has to be plotted}
+\item{panel.out}{if \code{FALSE} the third panel of the frequency profile is not plotted.}
 
-\item{gg}{if TRUE, will use the 'ggplot2' package. By default, gg = FALSE.}
+\item{gg}{if \code{TRUE}, will use \code{ggplot2} to plot frequency profiles.}
 
-\item{multiPlot}{if TRUE, will plot each behavior in a distinct panel. By 
-default, multiPlot = FALSE.}
+\item{multiPlot}{if \code{TRUE}, will plot each behavior in its own panel.}
 
 \item{tick.every}{the spacing between each tick. By default, N/30 where N is 
 the number of time units.}
@@ -32,10 +30,10 @@ the number of time units.}
 label.every = 3.}
 }
 \value{
-The function plots the data but does not return anything.
+Returns a frequency profiles plot.
 }
 \description{
-Plot data that has already been converted to class \code{freqprof} with 
+Use \code{plot_freqprof} to plot frequency profile data generated from 
 \code{\link{freqprof}}.
 }
 \examples{

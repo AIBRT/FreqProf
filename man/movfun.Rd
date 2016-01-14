@@ -2,29 +2,27 @@
 % Please edit documentation in R/ShapeData.R
 \name{movfun}
 \alias{movfun}
-\title{Moving function}
+\title{Internal function for Generating Moving Sum or Proportion}
 \usage{
 movfun(x, n, s, r, fun)
 }
 \arguments{
-\item{x}{data}
+\item{x}{data passed from \code{\link{freqprof}}}
 
-\item{n}{window length}
+\item{n}{window length passed from \code{\link{freqprof}}}
 
-\item{s}{step}
+\item{s}{step size passed from \code{\link{freqprof}}}
 
-\item{r}{resolution}
+\item{r}{resolution passed from \code{\link{freqprof}}}
 
-\item{fun}{"sum" or "proportion"}
+\item{fun}{"sum" or "proportion" passed from \code{\link{freqprof}}}
 }
 \value{
-Used for computing moving function. Returns a list containing the
-  processed data into $movfun, and the associated panels into $panels.
+Returns a list containing the processed data into $movfun, and the 
+  associated panels into $panels. Passes list to \code{\link{freqprof}}.
 }
 \description{
-Moving function
-}
-\examples{
-movfun(as.numeric(runif(10)>.5),2,1,1,"sum")
+Internal function in \code{\link{freqprof}} that is used to generate moving 
+sum or proportion data.
 }
 
