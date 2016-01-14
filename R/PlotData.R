@@ -1,22 +1,21 @@
 #' Plot Frequency Profiles.
 #' 
-#' Plot data that has already been converted to class \code{freqprof} with 
-#'\code{\link{freqprof}}.
+#' Use \code{plot_freqprof} to plot frequency profile data generated from 
+#' \code{\link{freqprof}}.
 #' 
-#' @param data.freqprof data formated into \code{freqprof} class.
-#' @param yAxis a string giving the legend of the y-axis.
-#' @param xAxisUnits a string indicating which unit has been used. By default, 
-#'   "sec".
-#' @param panel.in a boolean indicating if the first panel has to be plotted.
-#' @param panel.out a boolean indicating if the third panel has to be plotted
-#' @param gg if TRUE, will use the 'ggplot2' package. By default, gg = FALSE.
-#' @param multiPlot if TRUE, will plot each behavior in a distinct panel. By 
-#'   default, multiPlot = FALSE.
+#' @param data.freqprof data formated into class \code{freqprof}.
+#' @param yAxis a string labelling the y-axis, defaults to `data.freqprof$type`.
+#' @param xAxisUnits a string indicating x-axis units, defaults to "sec".
+#' @param panel.in if \code{FALSE} the first panel of the frequency profile is not plotted.
+#' @param panel.out if \code{FALSE} the third panel of the frequency profile is not plotted.
+#' @param gg if \code{TRUE}, will use \code{ggplot2} to plot frequency profiles.
+#' @param multiPlot if \code{TRUE}, will plot each behavior in its own panel.
 #' @param tick.every the spacing between each tick. By default, N/30 where N is 
 #'   the number of time units.
 #' @param label.every label every X ticks, where X = label.every. By default, 
 #'   label.every = 3.
-#' @return The function plots the data but does not return anything.
+#' @return 
+#'    Returns a frequency profiles plot.
 #' @importFrom reshape2 melt
 #' @import ggplot2
 #' @export
@@ -24,7 +23,7 @@
 #' data(s58)
 #' plot_freqprof(freqprof(s58))
 plot_freqprof = function(data.freqprof,
-                         yAxis=NULL,
+                         yAxis = NULL,
                          xAxisUnits = "sec",
                          panel.in = T,
                          panel.out = T,
@@ -52,7 +51,7 @@ plot_freqprof = function(data.freqprof,
   xmin = ifelse(test = panel.in,yes = min(t),no = x.panel.left)
   xmax = ifelse(test = panel.out,yes = max(t),no = x.panel.right)
   
-  # plotting results
+  # If no custom yAxis label given, label according to data.freqprof$type
   if(is.null(yAxis)){
     yAxis = switch(type,
                    sum = 'Moving sum',
