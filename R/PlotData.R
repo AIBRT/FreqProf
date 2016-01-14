@@ -6,8 +6,10 @@
 #' @param data.freqprof data formated into class \code{freqprof}.
 #' @param yAxis a string labelling the y-axis, defaults to `data.freqprof$type`.
 #' @param xAxisUnits a string indicating x-axis units, defaults to "sec".
-#' @param panel.in if \code{FALSE} the first panel of the frequency profile is not plotted.
-#' @param panel.out if \code{FALSE} the third panel of the frequency profile is not plotted.
+#' @param panel.in if \code{FALSE} the first panel of the frequency profile is
+#'  not plotted.
+#' @param panel.out if \code{FALSE} the third panel of the frequency profile is 
+#' not plotted.
 #' @param gg if \code{TRUE}, will use \code{ggplot2} to plot frequency profiles.
 #' @param multiPlot if \code{TRUE}, will plot each behavior in its own panel.
 #' @param tick.every the spacing between each tick. By default, N/30 where N is 
@@ -256,7 +258,8 @@ ggplotFreqProf <- function(data1,
       ylab(paste(yAxis)) +
       scale_x_continuous(limits = c(xmin, xmax),
                          minor_breaks = round(seq(xmin, xmax, by = tick.every)),
-                         breaks = round(seq(xmin, xmax, by = tick.every * label.every))) +
+                         breaks = round(seq(xmin, xmax, 
+                                            by = tick.every * label.every))) +
       scale_color_discrete(name="Behavior") +
       theme(axis.text.x = element_text(size = 12, colour = "#3f3f3f",
                                        margin = margin(t = 0.4, unit = "cm")),

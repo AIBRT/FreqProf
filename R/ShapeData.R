@@ -55,7 +55,8 @@ freqprof = function(data.behavior,
 #' @examples
 #' radj (as.numeric(runif(10) > 0.5), 2)
 =======
-#' Internal function in \code{\link{freqprof}} that is used to modify data resolution.
+#' Internal function in \code{\link{freqprof}} that is used to 
+#' modify data resolution.
 #' 
 #' @param x data data passed from \code{\link{freqprof}}
 #' @param r resolution passed from \code{\link{freqprof}}
@@ -100,8 +101,8 @@ movfun = function(x, n, s, r, fun) {
 #' @param fun "sum" or "proportion" passed from \code{\link{freqprof}}
 #' @return Returns a list containing the processed data into $movfun, and the 
 #'   associated panels into $panels. Passes list to \code{\link{freqprof}}.
-movfun = function(x,n,s,r,fun){
-  if (r > 1){
+movfun = function(x, n, s, r, fun) {
+  if (r > 1) {
 >>>>>>> upstream/master
     x <- radj(x, r)
   }
