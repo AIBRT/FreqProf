@@ -27,11 +27,11 @@ import_data = function(filename = file.choose()) {
                 bin = read.bin(filename),
                 fpw = read.fpw(filename))
   
-  if(is.null(data)){
-    stop("file extension must be either csv, fpw, or bin")  
+  if (is.null(data)) {
+    stop ("file extension must be either csv, fpw, or bin")  
   }
   
-  return(data)
+  return (data)
 }
 
 #' Reads the data in the file "filename", which is supposed to be a .bin file
@@ -73,7 +73,7 @@ import_data = function(filename = file.choose()) {
                           )
   }
   
-  return(as.data.frame(result))
+  return (as.data.frame(result))
 }
 
 #' Reads the data in the file "filename", which is supposed to be a .fpw file
@@ -105,5 +105,5 @@ read.fpw = function(filename) {
   result = result[, 2:ncol(result)]
   names(result) = paste("V", 1:ncol(result), sep = "")
   
-  return(result)
+  return (result)
 }

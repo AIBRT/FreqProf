@@ -80,7 +80,7 @@ cor.testm <- function (data1, data2, method) {
   # Need to adjust CI functions to include Spearman
   newdata <- list()
   x = 0
-  for (i in names (data1)) {
+  for (i in names(data1)) {
     x = x + 1
     newdata[[x]] <- cor.test (data1[, i], data2[, i], method = method)
   }
