@@ -24,8 +24,8 @@
 #' @examples
 #' data(s58)
 <<<<<<< HEAD
-#' plotFreqprof (freqprof(s58))
-plotFreqprof = function(data.freqprof,
+#' plot_Freqprof(freqprof(s58))
+plot_Freqprof = function(data.freqprof,
 =======
 #' plot_freqprof(freqprof(s58))
 plot_freqprof = function(data.freqprof,
@@ -63,7 +63,7 @@ plot_freqprof = function(data.freqprof,
   if (is.null(yAxis)) {
 =======
   # If no custom yAxis label given, label according to data.freqprof$type
-  if(is.null(yAxis)){
+  if (is.null(yAxis)) {
 >>>>>>> upstream/master
     yAxis = switch(type,
                    sum = 'Moving sum',
@@ -80,15 +80,15 @@ plot_freqprof = function(data.freqprof,
     
     # Graphing function
 <<<<<<< HEAD
-    p <- ggplotFreqProf(res.melt, 
-                        resolution = resolution, 
-                        step = step,
-                        yAxis = yAxis,
-                        xAxisUnits = xAxisUnits,
-                        xmin = xmin,
-                        xmax = xmax,
-                        tick.every = tick.every,
-                        label.every = label.every)
+    p <- ggplot_fp(res.melt, 
+                  resolution = resolution, 
+                  step = step,
+                  yAxis = yAxis,
+                  xAxisUnits = xAxisUnits,
+                  xmin = xmin,
+                  xmax = xmax,
+                  tick.every = tick.every,
+                  label.every = label.every)
 =======
     p <- ggplot_fp(data1 = res.melt, 
                    resolution = resolution, 
@@ -102,15 +102,15 @@ plot_freqprof = function(data.freqprof,
 >>>>>>> upstream/master
     
     if (panel.in) {
-      p = p + geomVertline(xintercept = x.panel.left)
+      p = p + geom_vline(xintercept = x.panel.left)
     }
     
-    if (panel.out){
-      p = p + geomVertline(xintercept = x.panel.right) 
+    if (panel.out) {
+      p = p + geom_vline(xintercept = x.panel.right) 
     }
     
     if (multiPlot) {
-      p = p + facetGrid(variable ~ .) + theme (legend.position = "none")
+      p = p + facet_grid(variable ~ .) + theme(legend.position = "none")
     }
     
     print(p)
@@ -206,44 +206,44 @@ plot_freqprof = function(data.freqprof,
 #'   label.every = 3.
 #' @return A ggplot of the frequency profile data in \code{data1}
 #' 
-ggplotFreqProf <- function(data1, 
-                          resolution = resolution, 
-                          step = step,
-                          yAxis = yAxis,
-                          xAxisUnits = xAxisUnits,
-                          xmin = xmin,
-                          xmax = xmax,
-                          tick.every = tick.every,
-                          label.every = label.every) {
+ggplot_fp <- function(data1, 
+                      resolution = resolution, 
+                      step = step,
+                      yAxis = yAxis,
+                      xAxisUnits = xAxisUnits,
+                      xmin = xmin,
+                      xmax = xmax,
+                      tick.every = tick.every,
+                      label.every = label.every) {
   
 <<<<<<< HEAD
   p <- ggplot(data1,
               aes(x = time, y = value, 
                   color = variable, group = variable)) + 
     geomLine(size = 0.8) +
-    labs (title = "Frequency Profile") +
-    xlab (paste('Time (', resolution * step, ' ', xAxisUnits, ')', sep = "")) +
-    ylab (paste(yAxis)) +
-    scaleXcontinuous (limits = c(xmin, xmax),
+    labs(title = "Frequency Profile") +
+    xlab(paste('Time (', resolution * step, ' ', xAxisUnits, ')', sep = "")) +
+    ylab(paste(yAxis)) +
+    scaleXcontinuous(limits = c(xmin, xmax),
                        minorBreaks = round(seq(xmin, xmax, by = tick.every)),
                        breaks = round(seq(xmin, xmax, 
                                           by = tick.every*label.every))) +
     scaleColorDiscrete (name = "Behavior") +
-    theme (axis.text.x = elementText(size = 12, color = "#3f3f3f", 
+    theme (axis.text.x = element_text(size = 12, color = "#3f3f3f", 
                                      margin = margin(t = 0.4, unit = "cm")),
-          axis.text.y = elementText(size = 12, color = "#3f3f3f",
+          axis.text.y = element_text(size = 12, color = "#3f3f3f",
                                      margin = margin(r = 0.4, unit = "cm")),
-          axis.title.x = elementText(size = 14, face = "bold",
+          axis.title.x = element_text(size = 14, face = "bold",
                                       margin = margin(t = 0.4, unit = "cm")),
-          axis.title.y = elementText(size = 14, face = "bold",
+          axis.title.y = element_text(size = 14, face = "bold",
                                       margin = margin(r = 0.4, unit = "cm")),
-          title = elementText(size = 17, face = "bold"),
-          legend.text = elementText(size = 12),
-          panel.background = elementRect(fill = '#f6f6f6'),
-          panel.grid.major = elementLine(color = "#e9e9e9"),
-          panel.grid.minor = elementLine(color = "#e9e9e9"),
-          axis.line = elementLine(color = "#a8a8a8"),
-          axis.ticks = elementLine(color = "black", size = 0.5),
+          title = element_text(size = 17, face = "bold"),
+          legend.text = element_text(size = 12),
+          panel.background = element_rect(fill = '#f6f6f6'),
+          panel.grid.major = element_line(color = "#e9e9e9"),
+          panel.grid.minor = element_line(color = "#e9e9e9"),
+          axis.line = element_line(color = "#a8a8a8"),
+          axis.ticks = element_line(color = "black", size = 0.5),
           axis.ticks.length = unit(-0.2, "cm"))
   return (p)
 =======
@@ -251,7 +251,7 @@ ggplotFreqProf <- function(data1,
     ggplot(data1,
            aes(x = time, 
                y = value,
-               colour = variable, group = variable)) +
+               color = variable, group = variable)) +
       geom_line(size = 0.8) +
       labs(title = "Frequency Profile") +
       xlab(paste('Time (',resolution * step,' ',xAxisUnits,')',sep="")) +
@@ -261,9 +261,9 @@ ggplotFreqProf <- function(data1,
                          breaks = round(seq(xmin, xmax, 
                                             by = tick.every * label.every))) +
       scale_color_discrete(name="Behavior") +
-      theme(axis.text.x = element_text(size = 12, colour = "#3f3f3f",
+      theme(axis.text.x = element_text(size = 12, color = "#3f3f3f",
                                        margin = margin(t = 0.4, unit = "cm")),
-            axis.text.y = element_text(size = 12, colour = "#3f3f3f",
+            axis.text.y = element_text(size = 12, color = "#3f3f3f",
                                        margin = margin(r = 0.4, unit = "cm")),
             axis.title.x = element_text(size = 14, face = "bold",
                                         margin = margin(t = 0.4, unit = "cm")),
@@ -272,13 +272,13 @@ ggplotFreqProf <- function(data1,
             title = element_text(size = 17, face = "bold"),
             legend.text = element_text(size = 12),
             panel.background = element_rect(fill = "#f6f6f6"),
-            panel.grid.major = element_line(colour = "#e9e9e9"),
-            panel.grid.minor = element_line(colour = "#e9e9e9"),
+            panel.grid.major = element_line(color = "#e9e9e9"),
+            panel.grid.minor = element_line(color = "#e9e9e9"),
             axis.line = element_line(color = "#a8a8a8"),
-            axis.ticks = element_line(colour = "black", size = 0.5),
+            axis.ticks = element_line(color = "black", size = 0.5),
             axis.ticks.length = unit(-0.2, "cm"))
   })
   
-  return(p)
+  return (p)
 >>>>>>> upstream/master
 }
