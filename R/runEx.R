@@ -8,7 +8,8 @@
 runEx <- function() {
   appDir <- system.file("shinyapp", package = "FreqProf")
   if (appDir == "") {
-    stop("Could not find example directory. Try reinstalling `FreqProf`.", call. = FALSE)
+    stop ("Could not find example directory. Try reinstalling `FreqProf`.", 
+          call. = FALSE)
   }
   shiny::runApp(appDir, display.mode = "normal")
 }

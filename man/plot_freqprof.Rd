@@ -6,7 +6,7 @@
 \usage{
 plot_freqprof(data.freqprof, yAxis = NULL, xAxisUnits = "sec",
   panel.in = T, panel.out = T, gg = F, multiPlot = F,
-  tick.every = round(length(data.freqprof$data$time)/31), label.every = 3)
+  tick.every = round(length(data.freqprof$data$time) / 31), label.every = 3)
 }
 \arguments{
 \item{data.freqprof}{data formated into class \code{freqprof}.}
