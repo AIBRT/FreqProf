@@ -12,10 +12,10 @@
 #' @examples
 #'  \donttest{
 #'  # Select a file
-#'  import_Data(filename = system.file("extdata/S58-1-1.bin", 
+#'  import_data(filename = system.file("extdata/S58-1-1.bin", 
 #'             package = "FreqProf"))
 #'  }
-import_Data = function(filename = file.choose()) {
+import_data = function(filename = file.choose()) {
   # this function reads a file, whose extension is either csv, bin or fpw,
   # and imports it as a data.frame
   
@@ -40,16 +40,9 @@ import_Data = function(filename = file.choose()) {
 #' @return A data.frame giving the raw data.
 #' @export
 #' @examples
-<<<<<<< HEAD
 #' read.bin (file.choose())
-read.bin = function(filename) {
-=======
-#'  \donttest{
-#'  read.bin(system.file("extdata/S58-1-1.bin", package = "FreqProf"))
-#'  }
-read.bin = function(filename){
->>>>>>> upstream/master
   
+
   # scanning the file, line by line
   file.scan = scan(file = filename,
                    what = "character",
@@ -87,14 +80,11 @@ read.bin = function(filename){
 #' 
 #' @param filename a string indicating the path of the file.
 #' @return A data.frame giving the raw data.
-<<<<<<< HEAD
 #' @export
 #' @examples
 #' read.bin(file.choose())
 read.fpw = function(filename) {
-=======
-read.fpw = function(filename){
->>>>>>> upstream/master
+
   
   file.scan = scan(file = filename,
                    what = "character",
