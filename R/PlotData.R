@@ -4,7 +4,7 @@
 #' \code{\link{freqprof}}.
 #' 
 #' @param data.freqprof data formated into class \code{freqprof}.
-#' @param yAxis a string labelling the y-axis, defaults to `data.freqprof$type`.
+#' @param yAxis a string labelling the y-axis, defaults to \code{data.freqprof$type}.
 #' @param xAxisUnits a string indicating x-axis units, defaults to "sec".
 #' @param panel.in if \code{FALSE} the first panel of the frequency profile is not plotted.
 #' @param panel.out if \code{FALSE} the third panel of the frequency profile is not plotted.

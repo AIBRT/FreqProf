@@ -22,7 +22,7 @@ imports it as a data.frame.
 \examples{
  \donttest{
  # Select a file
- import_data(filename = system.file("extdata/S58-1-1.bin", package = "FreqProf"))
+ import_data(filename = system.file("extdata", "S58-1-1.bin", package = "FreqProf"))
  }
 }
 

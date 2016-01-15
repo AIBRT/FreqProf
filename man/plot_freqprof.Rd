@@ -11,7 +11,7 @@ plot_freqprof(data.freqprof, yAxis = NULL, xAxisUnits = "sec",
 \arguments{
 \item{data.freqprof}{data formated into class \code{freqprof}.}
 
-\item{yAxis}{a string labelling the y-axis, defaults to `data.freqprof$type`.}
+\item{yAxis}{a string labelling the y-axis, defaults to \code{data.freqprof$type}.}
 
 \item{xAxisUnits}{a string indicating x-axis units, defaults to "sec".}
 

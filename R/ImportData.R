@@ -12,7 +12,7 @@
 #' @examples
 #'  \donttest{
 #'  # Select a file
-#'  import_data(filename = system.file("extdata/S58-1-1.bin", package = "FreqProf"))
+#'  import_data(filename = system.file("extdata", "S58-1-1.bin", package = "FreqProf"))
 #'  }
 import_data = function(filename = file.choose()){
   # this function reads a file, whose extension is either csv, bin or fpw,
@@ -39,7 +39,7 @@ import_data = function(filename = file.choose()){
 #' @export
 #' @examples
 #'  \donttest{
-#'  read.bin(system.file("extdata/S58-1-1.bin", package = "FreqProf"))
+#'  read.bin(filename = system.file("extdata", "S58-1-1.bin", package = "FreqProf"))
 #'  }
 read.bin = function(filename){
   

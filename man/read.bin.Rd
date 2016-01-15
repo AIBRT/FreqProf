@@ -17,7 +17,7 @@ Reads the data in the file "filename", which is supposed to be a .bin file
 }
 \examples{
  \donttest{
- read.bin(system.file("extdata/S58-1-1.bin", package = "FreqProf"))
+ read.bin(filename = system.file("extdata", "S58-1-1.bin", package = "FreqProf"))
  }
 }
 
