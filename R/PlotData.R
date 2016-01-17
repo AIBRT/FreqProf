@@ -28,10 +28,10 @@
 plot_freqprof = function(data.freqprof,
                          yAxis       = NULL,
                          xAxisUnits  = "sec",
-                         panel.in    = T,
-                         panel.out   = T,
-                         gg          = F,
-                         multiPlot   = F,
+                         panel.in    = TRUE,
+                         panel.out   = TRUE,
+                         gg          = FALSE,
+                         multiPlot   = FALSE,
                          tick.every  = round(length(data.freqprof$data$time)
                                              / 31),
                          label.every = 3) {
@@ -117,9 +117,9 @@ plot_freqprof = function(data.freqprof,
         n.minor = length(ax <- seq(from = xmin, 
                                    to   = xmax, 
                                    by   = tick.every))
-        axis(1, at = ax, labels = F)
+        axis(1, at = ax, labels = FALSE)
         lab = ax[seq(1, n.minor, by = label.every)]
-        axis(1, at = lab, labels = T)
+        axis(1, at = lab, labels = TRUE)
         if(panel.in) {
           abline(v = x.panel.left)
         } 
@@ -160,9 +160,9 @@ plot_freqprof = function(data.freqprof,
       n.minor = length(ax <- seq(from = xmin, 
                                  to   = xmax, 
                                  by   = tick.every))
-      axis(1, at = ax, labels = F)
+      axis(1, at = ax, labels = FALSE)
       lab = ax[seq(1, n.minor, by = label.every)]
-      axis(1, at = lab, labels = T)
+      axis(1, at = lab, labels = TRUE)
       
       if(ncol(freqprof) > 1) {
         for(j in 2:ncol(freqprof)) {
@@ -213,7 +213,8 @@ ggplot_fp <- function(data1,
      ggplot(data1,
             aes(x      = time, 
                 y      = value,
-                color = variable, group = variable)) +
+                color  = variable, 
+                group  = variable)) +
      geom_line(size = 0.8) +
      labs(title = "Frequency Profile") +
      xlab(paste('Time (', resolution * step, ' ', xAxisUnits, ')', sep = "")) + 
