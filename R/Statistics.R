@@ -18,16 +18,16 @@ approxm <- function(data1, n, method = "linear") {
   # data1 = data.frame
   # n = desired interpolation length for each variable (column)
   # Returns data.frame with nrow = n
-           newdata <- data.frame(matrix(nrow = n, 
-                                        ncol = ncol(data)))
-                      colnames(newdata) <- names(data1)
-                      for(i in names(data1)) {
-                         newdata[, i] <- if(method == "linear") {
-                                            approx(data1[, i], n = n)$y
-                                       } else if(method == "spline") {
-                                            spline(data1[, i], n = n)$y
+  newdata <- data.frame(matrix(nrow = n, 
+                               ncol = ncol(data1)))
+             colnames(newdata) <- names(data1)
+             for(i in names(data1)) {
+             newdata[, i] <- if(method == "linear") {
+                                approx(data1[, i], n = n)$y
+                           } else if(method == "spline") {
+                                spline(data1[, i], n = n)$y
                                                                      }
-                                             }
+                                    }
   return(newdata)
 }
 
