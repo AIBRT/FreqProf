@@ -15,6 +15,7 @@ radj(x, r)
 Resolution adjustment.
 }
 \description{
-Internal function in \code{\link{freqprof}} that is used to modify data resolution.
+Internal function in \code{\link{freqprof}} 
+that is used to modify data resolution.
 }
 

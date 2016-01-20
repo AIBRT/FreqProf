@@ -5,19 +5,22 @@
 \title{Plot Frequency Profiles.}
 \usage{
 plot_freqprof(data.freqprof, yAxis = NULL, xAxisUnits = "sec",
-  panel.in = T, panel.out = T, gg = F, multiPlot = F,
+  panel.in = TRUE, panel.out = TRUE, gg = FALSE, multiPlot = FALSE,
   tick.every = round(length(data.freqprof$data$time)/31), label.every = 3)
 }
 \arguments{
 \item{data.freqprof}{data formated into class \code{freqprof}.}
 
-\item{yAxis}{a string labelling the y-axis, defaults to \code{data.freqprof$type}.}
+\item{yAxis}{a string labelling the y-axis, defaults to
+\code{data.freqprof$type}.}
 
 \item{xAxisUnits}{a string indicating x-axis units, defaults to "sec".}
 
-\item{panel.in}{if \code{FALSE} the first panel of the frequency profile is not plotted.}
+\item{panel.in}{if \code{FALSE} the first panel of the frequency profile
+is not plotted.}
 
-\item{panel.out}{if \code{FALSE} the third panel of the frequency profile is not plotted.}
+\item{panel.out}{if \code{FALSE} the third panel of the frequency profile
+is not plotted.}
 
 \item{gg}{if \code{TRUE}, will use \code{ggplot2} to plot frequency profiles.}
 

@@ -10,7 +10,7 @@ read.fpw(filename)
 \item{filename}{a string indicating the path of the file.}
 }
 \value{
-A data.frame giving the raw data.
+A data.frame of the .fpw data.
 }
 \description{
 Reads the data in the file "filename", which is supposed to be a .fpw file

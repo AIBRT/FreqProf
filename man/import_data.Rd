@@ -8,21 +8,22 @@ import_data(filename = file.choose())
 }
 \arguments{
 \item{filename}{a string indicating the path of the file containing the data.
-By default, will open a pop-up so that the user can choose a file with the
+By default, will open a pop-up so that the user can choose a file with the 
 GUI.}
 }
 \value{
-A data.frame ready to be converted into freqprof class (see function
+A data.frame ready to be converted into freqprof class (see function 
   \code{freqprof}).
 }
 \description{
-This function reads a file, whose extension is either csv, bin or fpw, and
+This function reads a file, whose extension is either csv, bin or fpw, and 
 imports it as a data.frame.
 }
 \examples{
  \donttest{
  # Select a file
- import_data(filename = system.file("extdata", "S58-1-1.bin", package = "FreqProf"))
+ import_data(filename = system.file("extdata", "S58-1-1.bin", 
+                                    package = "FreqProf"))
  }
 }
 

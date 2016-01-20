@@ -1,19 +1,19 @@
 #' Import Data Pop Up
 #' 
-#' This function reads a file, whose extension is either csv, bin or fpw, and
+#' This function reads a file, whose extension is either csv, bin or fpw, and 
 #' imports it as a data.frame.
 #' 
 #' @param filename a string indicating the path of the file containing the data.
-#'   By default, will open a pop-up so that the user can choose a file with the
+#'   By default, will open a pop-up so that the user can choose a file with the 
 #'   GUI.
-#' @return A data.frame ready to be converted into freqprof class (see function
+#' @return A data.frame ready to be converted into freqprof class (see function 
 #'   \code{freqprof}).
 #' @export
 #' @examples
 #'  \donttest{
 #'  # Select a file
-#'  import_data(filename = system.file("extdata",
-#'   "S58-1-1.bin", package = "FreqProf"))
+#'  import_data(filename = system.file("extdata", "S58-1-1.bin", 
+#'                                     package = "FreqProf"))
 #'  }
 import_data = function(filename = file.choose()) {
   # this function reads a file, whose extension is either csv, bin or fpw,
@@ -43,7 +43,7 @@ import_data = function(filename = file.choose()) {
 #' @examples
 #'  \donttest{
 #'  read.bin(filename = system.file("extdata", "S58-1-1.bin",
-#'   package = "FreqProf"))
+#'                                  package = "FreqProf"))
 #'  }
 read.bin = function(filename) {
   
@@ -54,11 +54,13 @@ read.bin = function(filename) {
                    quiet = TRUE)
   
   # looking for the line that starts with an asterisk
-  N = which(sapply(X = 1:length(file.scan), 
-                   FUN = function(x) {
-                         substr(file.scan[x], 1, 1) == "*"
-                     }))
-      file.data = file.scan[(N + 2):length(file.scan)]
+  N = which(sapply(1:length(file.scan),
+                   function(x) {
+                     substr(file.scan[x], 1, 1) == "*"
+                   })
+            )
+  
+  file.data = file.scan[(N + 2):length(file.scan)]
   
   # removing "<" at the end of line
   for(j in 1:length(file.data)) {
@@ -69,11 +71,12 @@ read.bin = function(filename) {
   result = matrix(data = NA, 
                   nrow = nchar(file.data[1]),
                   ncol = length(file.data))
+  
   for(j in 1:dim(result)[2]) {
-    result[, j] = sapply(X = 1:nchar(file.data[j]),
-                         FUN = function(x) {
-                               as.numeric(substr(file.data[j], x, x))
-                           })
+    result[, j] = sapply(1:nchar(file.data[j]),
+                         function(x) {
+                           as.numeric(substr(file.data[j], x, x))
+                         })
   }
   
   return(as.data.frame(result))
@@ -82,7 +85,7 @@ read.bin = function(filename) {
 #' Reads the data in the file "filename", which is supposed to be a .fpw file
 #' 
 #' @param filename a string indicating the path of the file.
-#' @return A data.frame giving the raw data.
+#' @return A data.frame of the .fpw data.
 read.fpw = function(filename) {
            
   file.scan = scan(file  = filename,
@@ -91,15 +94,16 @@ read.fpw = function(filename) {
                    quiet = TRUE)
   
   # looking for the line that indicates "[DATA]"
-  N = which(sapply(X = 1:length(file.scan),
-                   FUN = function(x) {
-                         file.scan[x] == "[DATA]"}))
+  N = which(sapply(1:length(file.scan),
+                   function(x) {
+                     file.scan[x] == "[DATA]"
+                   })
+            )
   
   # converting these strings into a data.frame
-  result = read.table(file        = filename, 
-                      skip        = N + 2, 
-                      sep         = " ", 
-                      strip.white = FALSE)
+  result = read.table(file = filename, 
+                      skip = N + 2, 
+                      sep  = " ")
   
   # as the lines begin with a " ", the first column is read as NA
   result = result[, 2:ncol(result)]
