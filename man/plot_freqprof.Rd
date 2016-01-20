@@ -11,23 +11,23 @@ plot_freqprof(data.freqprof, yAxis = NULL, xAxisUnits = "sec",
 \arguments{
 \item{data.freqprof}{data formated into class \code{freqprof}.}
 
-\item{yAxis}{a string labelling the y-axis, defaults to
+\item{yAxis}{a string labelling the y-axis, defaults to 
 \code{data.freqprof$type}.}
 
 \item{xAxisUnits}{a string indicating x-axis units, defaults to "sec".}
 
-\item{panel.in}{if \code{FALSE} the first panel of the frequency profile
-is not plotted.}
+\item{panel.in}{if \code{FALSE} the first panel of the frequency profile, the
+window moving in, is not plotted.}
 
-\item{panel.out}{if \code{FALSE} the third panel of the frequency profile
-is not plotted.}
+\item{panel.out}{if \code{FALSE} the third panel of the frequency profile, 
+the window moving out, is not plotted.}
 
 \item{gg}{if \code{TRUE}, will use \code{ggplot2} to plot frequency profiles.}
 
 \item{multiPlot}{if \code{TRUE}, will plot each behavior in its own panel.}
 
-\item{tick.every}{the spacing between each tick. By default, N/30 where N is 
-the number of time units.}
+\item{tick.every}{the spacing between each plot tick mark. By default, N/30
+where N is the number of time units.}
 
 \item{label.every}{label every X ticks, where X = label.every. By default, 
 label.every = 3.}

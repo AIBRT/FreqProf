@@ -4,21 +4,20 @@
 #' \code{\link{freqprof}}.
 #' 
 #' @param data.freqprof data formated into class \code{freqprof}.
-#' @param yAxis a string labelling the y-axis, defaults to
-#'  \code{data.freqprof$type}.
+#' @param yAxis a string labelling the y-axis, defaults to 
+#'   \code{data.freqprof$type}.
 #' @param xAxisUnits a string indicating x-axis units, defaults to "sec".
-#' @param panel.in if \code{FALSE} the first panel of the frequency profile
-#'  is not plotted.
-#' @param panel.out if \code{FALSE} the third panel of the frequency profile
-#'  is not plotted.
+#' @param panel.in if \code{FALSE} the first panel of the frequency profile, the
+#'   window moving in, is not plotted.
+#' @param panel.out if \code{FALSE} the third panel of the frequency profile, 
+#'   the window moving out, is not plotted.
 #' @param gg if \code{TRUE}, will use \code{ggplot2} to plot frequency profiles.
 #' @param multiPlot if \code{TRUE}, will plot each behavior in its own panel.
-#' @param tick.every the spacing between each tick. By default, N/30 where N is 
-#'   the number of time units.
+#' @param tick.every the spacing between each plot tick mark. By default, N/30
+#'   where N is the number of time units.
 #' @param label.every label every X ticks, where X = label.every. By default, 
 #'   label.every = 3.
-#' @return 
-#'    Returns a frequency profiles plot.
+#' @return Returns a frequency profiles plot.
 #' @importFrom reshape2 melt
 #' @import ggplot2
 #' @export
@@ -26,34 +25,34 @@
 #' data(s58)
 #' plot_freqprof(freqprof(s58))
 plot_freqprof = function(data.freqprof,
-                         yAxis       = NULL,
-                         xAxisUnits  = "sec",
-                         panel.in    = TRUE,
-                         panel.out   = TRUE,
-                         gg          = FALSE,
-                         multiPlot   = FALSE,
-                         tick.every  = round(length(data.freqprof$data$time)
-                                             / 31),
+                         yAxis      = NULL,
+                         xAxisUnits = "sec",
+                         panel.in   = TRUE,
+                         panel.out  = TRUE,
+                         gg         = FALSE,
+                         multiPlot  = FALSE,
+                         tick.every = round(length(data.freqprof$data$time) / 31),
                          label.every = 3) {
-  # extract relevant data from data.freqprof
-  res <- data.freqprof$data
-  panels = res$panels
-  res = res[, -2]
+  
+  # Extract relevant data from data.freqprof
+  res      <- data.freqprof$data
+  panels   <- res$panels
+  res      <- res[, -2]
   freqprof <- res[, -1]
-  t <- res$time
+  t        <- res$time
   
-  window     = data.freqprof$window
-  step       = data.freqprof$step
-  resolution = data.freqprof$resolution
-  type       = data.freqprof$type
+  window     <- data.freqprof$window
+  step       <- data.freqprof$step
+  resolution <- data.freqprof$resolution
+  type       <- data.freqprof$type
   
-  # panels limits
-  x.panel.left  = max(which(data.freqprof$data$panels == 1)) * resolution
-  x.panel.right = min(which(data.freqprof$data$panels == 3)) * resolution
+  # Panels limits
+  x.panel.left  <- max(which(data.freqprof$data$panels == 1)) * resolution
+  x.panel.right <- min(which(data.freqprof$data$panels == 3)) * resolution
   
-  # x-axis limits
-  xmin = ifelse(test = panel.in,  yes = min(t), no = x.panel.left)
-  xmax = ifelse(test = panel.out, yes = max(t), no = x.panel.right)
+  # X-axis limits
+  xmin <- ifelse(test = panel.in,  yes = min(t), no = x.panel.left)
+  xmax <- ifelse(test = panel.out, yes = max(t), no = x.panel.right)
   
   # If no custom yAxis label given, label according to data.freqprof$type
   if(is.null(yAxis)) {
@@ -62,7 +61,7 @@ plot_freqprof = function(data.freqprof,
                    proportion = 'Moving proportion')
   }
   
-  # color-blind friendly palette
+  # Color-blind friendly palette
   cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", 
                   "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
   
@@ -226,20 +225,16 @@ ggplot_fp <- function(data1,
      scale_color_discrete(name = "Behavior") +
      theme(axis.text.x       = element_text(size   = 12,
                                             color  = "#3f3f3f",
-                                            margin = margin(t    = 0.4,
-                                                            unit = "cm")),
+                                            margin = margin(t = 0.4, unit = "cm")),
            axis.text.y       = element_text(size   = 12, 
                                             color  = "#3f3f3f",
-                                            margin = margin(r    = 0.4, 
-                                                            unit = "cm")),
+                                            margin = margin(r = 0.4, unit = "cm")),
            axis.title.x      = element_text(size   = 14, 
                                             face   = "bold",
-                                            margin = margin(t    = 0.4, 
-                                                            unit = "cm")),
+                                            margin = margin(t = 0.4, unit = "cm")),
            axis.title.y      = element_text(size   = 14, 
                                             face   = "bold",
-                                            margin = margin(r    = 0.4, 
-                                                            unit = "cm")),
+                                            margin = margin(r = 0.4, unit = "cm")),
            title             = element_text(size   = 17, 
                                             face   = "bold"),
            legend.text       = element_text(size   = 12),
