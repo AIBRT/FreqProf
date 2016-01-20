@@ -3,3 +3,4 @@
 ^archive$
 ^cran-comments\.md$
 ^revdep$
+^NEWS\.md$
