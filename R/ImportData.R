@@ -12,20 +12,23 @@
 #' @examples
 #'  \donttest{
 #'  # Select a file
-#'  import_data(filename = system.file("extdata", "S58-1-1.bin", package = "FreqProf"))
+#'  import_data(filename = system.file("extdata",
+#'   "S58-1-1.bin", package = "FreqProf"))
 #'  }
-import_data = function(filename = file.choose()){
+import_data = function(filename = file.choose()) {
   # this function reads a file, whose extension is either csv, bin or fpw,
   # and imports it as a data.frame
   
-  file.extension = tolower(substr(filename,nchar(filename)-2,nchar(filename)))
+  file.extension = tolower(substr(filename, 
+                                  nchar(filename) - 2,
+                                  nchar(filename)))
   
   data = switch(file.extension,
                 csv = read.csv(filename),
                 bin = read.bin(filename),
                 fpw = read.fpw(filename))
   
-  if(is.null(data)){
+  if(is.null(data)) {
     stop("file extension must be either csv, fpw, or bin")  
   }
   
@@ -39,28 +42,38 @@ import_data = function(filename = file.choose()){
 #' @export
 #' @examples
 #'  \donttest{
-#'  read.bin(filename = system.file("extdata", "S58-1-1.bin", package = "FreqProf"))
+#'  read.bin(filename = system.file("extdata", "S58-1-1.bin",
+#'   package = "FreqProf"))
 #'  }
-read.bin = function(filename){
+read.bin = function(filename) {
   
   # scanning the file, line by line
-  file.scan = scan(file = filename,
-                   what = "character",
-                   sep = "\n",
-                   quiet = T)
+  file.scan = scan(file  = filename,
+                   what  = "character",
+                   sep   = "\n",
+                   quiet = TRUE)
   
   # looking for the line that starts with an asterisk
-  N = which(sapply(X = 1:length(file.scan),FUN = function(x){substr(file.scan[x],1,1)=="*"}))
-  file.data = file.scan[(N+2):length(file.scan)]
+  N = which(sapply(X = 1:length(file.scan), 
+                   FUN = function(x) {
+                         substr(file.scan[x], 1, 1) == "*"
+                     }))
+      file.data = file.scan[(N + 2):length(file.scan)]
+  
   # removing "<" at the end of line
-  for(j in 1:length(file.data)){
-    file.data[j] = substr(file.data[j],1,nchar(file.data[j])-1)
+  for(j in 1:length(file.data)) {
+    file.data[j] = substr(file.data[j], 1, nchar(file.data[j]) - 1)
   }
   
   # converting these strings into a matrix
-  result = matrix(data = NA,nrow = nchar(file.data[1]),ncol = length(file.data))
-  for(j in 1:dim(result)[2]){
-    result[,j] = sapply(X = 1:nchar(file.data[j]),FUN = function(x){as.numeric(substr(file.data[j],x,x))})
+  result = matrix(data = NA, 
+                  nrow = nchar(file.data[1]),
+                  ncol = length(file.data))
+  for(j in 1:dim(result)[2]) {
+    result[, j] = sapply(X = 1:nchar(file.data[j]),
+                         FUN = function(x) {
+                               as.numeric(substr(file.data[j], x, x))
+                           })
   }
   
   return(as.data.frame(result))
@@ -70,20 +83,27 @@ read.bin = function(filename){
 #' 
 #' @param filename a string indicating the path of the file.
 #' @return A data.frame giving the raw data.
-read.fpw = function(filename){
+read.fpw = function(filename) {
+           
+  file.scan = scan(file  = filename,
+                   what  = "character",
+                   sep   = "\n",
+                   quiet = TRUE)
   
-  file.scan = scan(file = filename,
-                   what = "character",
-                   sep = "\n",
-                   quiet = T)
   # looking for the line that indicates "[DATA]"
-  N = which(sapply(X = 1:length(file.scan),FUN = function(x){file.scan[x]=="[DATA]"}))
+  N = which(sapply(X = 1:length(file.scan),
+                   FUN = function(x) {
+                         file.scan[x] == "[DATA]"}))
   
   # converting these strings into a data.frame
-  result = read.table(file = filename,skip=N+2,sep=" ",strip.white=F)
+  result = read.table(file        = filename, 
+                      skip        = N + 2, 
+                      sep         = " ", 
+                      strip.white = FALSE)
+  
   # as the lines begin with a " ", the first column is read as NA
-  result = result[,2:ncol(result)]
-  names(result) = paste("V",1:ncol(result),sep="")
+  result = result[, 2:ncol(result)]
+  names(result) = paste("V", 1:ncol(result), sep = "")
   
   return(result)
 }
