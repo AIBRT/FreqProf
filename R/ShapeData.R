@@ -26,16 +26,14 @@ freqprof = function(data.behavior,
   }
   
   # computing frequency profile
-  freqprof = as.data.frame(apply(data.behavior, 
-                                 MARGIN = 2, 
-                                 FUN = function(x) {
-                                       movfun(x,
-                                              n   = window,
-                                              s   = step,
-                                              r   = resolution,
-                                              fun = which)$movfun
-                                                   }
-                                 )
+  freqprof = as.data.frame(apply(data.behavior, 2, 
+                                 function(x) {
+                                   movfun(x,
+                                          n   = window,
+                                          s   = step,
+                                          r   = resolution,
+                                          fun = which)$movfun
+                                 })
                            )
   
   res = cbind(data.frame(time   = (0:(nrow(freqprof) - 1)) * resolution,
@@ -94,8 +92,7 @@ movfun = function(x, n, s, r, fun) {
   
   fun = switch(fun,
                sum        = sum,
-               proportion = function(y) {
-                            sum(y) / n})
+               proportion = function(y) {sum(y) / n})
   
   res = rep(NA, floor((length(x) + n - 1) / s))
   
