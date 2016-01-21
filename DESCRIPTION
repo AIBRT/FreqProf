@@ -1,6 +1,6 @@
 Package: FreqProf
 Version: 0.0.1
-Date: 2016-01-20
+Date: 2016-01-21
 Authors@R: c(
     person("Robert", "Epstein",, "re@aibrt.org", "aut"),
     person("Thomas", "Boulier",, "thomas.boulier@polytechnique.edu", "aut"),

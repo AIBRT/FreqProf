@@ -17,9 +17,6 @@
 #'                                     package = "FreqProf"))
 #'  }
 import_data = function(filename = file.choose()) {
-  # this function reads a file, whose extension is either csv, bin or fpw,
-  # and imports it as a data.frame
-  
   file.extension = tolower(substr(filename, 
                                   nchar(filename) - 2,
                                   nchar(filename)))
