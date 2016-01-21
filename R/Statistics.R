@@ -15,10 +15,6 @@
 #' @export
 #' 
 approxm <- function(data1, n, method = "linear") {
-  # Linear interpolation for multiple variables in data
-  # data1 = data.frame
-  # n = desired interpolation length for each variable (column)
-  # Returns data.frame with nrow = n
   newdata <- data.frame(matrix(nrow = n, 
                                ncol = ncol(data1)))
   
@@ -52,9 +48,6 @@ approxm <- function(data1, n, method = "linear") {
 #' @export
 #' 
 ks.testm <- function(data1, data2, vars) {
-  # Compares multiple variables of the same name
-  # in two data sets and returns in table format
-  #
   a <- data.frame(matrix(nrow = length(vars), 
                          ncol = 2))
   
@@ -84,12 +77,6 @@ ks.testm <- function(data1, data2, vars) {
 #' @export
 #' 
 cor.testm <- function(data1, data2, method) {
-  # Correlation for multiple variables in data
-  # data1 = data1
-  # data2 = data2
-  # method = correlation method
-  # Returns data.frame NOTE: only works for Pearson. 
-  # Need to adjust CI functions to include Spearman.
   newdata <- list()
   x = 0
   for(i in names(data1)) {
