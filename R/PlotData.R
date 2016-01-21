@@ -19,6 +19,7 @@
 #'   label.every = 3.
 #' @return Returns a frequency profiles plot.
 #' @importFrom reshape2 melt
+#' @importFrom graphics abline axis lines mtext par plot
 #' @import ggplot2
 #' @export
 #' @examples
@@ -214,35 +215,35 @@ ggplot_fp <- function(data1,
                 y      = value,
                 color  = variable, 
                 group  = variable)) +
-     geom_line(size = 0.8) +
-     labs(title = "Frequency Profile") +
-     xlab(paste('Time (', resolution * step, ' ', xAxisUnits, ')', sep = "")) + 
-     ylab(paste(yAxis)) +
-     scale_x_continuous(limits       = c(xmin, xmax),
+      geom_line(size = 0.8) +
+      labs(title = "Frequency Profile") +
+      xlab(paste('Time (', resolution * step, ' ', xAxisUnits, ')', sep = "")) + 
+      ylab(paste(yAxis)) +
+      scale_x_continuous(limits       = c(xmin, xmax),
                         minor_breaks = round(seq(xmin, xmax, by = tick.every)),
                         breaks       = round(seq(xmin, xmax,
                                              by = tick.every * label.every))) +
-     scale_color_discrete(name = "Behavior") +
-     theme(axis.text.x  = element_text(size   = 12,
-                                       color  = "#3f3f3f",
-                                       margin = margin(t = 0.4, unit = "cm")),
-           axis.text.y  = element_text(size   = 12, 
-                                       color  = "#3f3f3f",
-                                       margin = margin(r = 0.4, unit = "cm")),
-           axis.title.x = element_text(size   = 14, 
-                                       face   = "bold",
-                                       margin = margin(t = 0.4, unit = "cm")),
-           axis.title.y = element_text(size   = 14, 
-                                       face   = "bold",
-                                       margin = margin(r = 0.4, unit = "cm")),
-           title = element_text(size = 17, face = "bold"),
-           legend.text       = element_text(size   = 12),
-           panel.background  = element_rect(fill   = "#f6f6f6"),
-           panel.grid.major  = element_line(color  = "#e9e9e9"),
-           panel.grid.minor  = element_line(color  = "#e9e9e9"),
-           axis.line         = element_line(color  = "#a8a8a8"),
-           axis.ticks        = element_line(color  = "black", size = 0.5),
-           axis.ticks.length = unit(-0.2, "cm"))
+      scale_color_discrete(name = "Behavior") +
+      theme(title = element_text(size = 17, face = "bold"),
+            axis.text.x  = element_text(size   = 12,
+                                        color  = "#3f3f3f",
+                                        margin = margin(t = 0.4, unit = "cm")),
+            axis.text.y  = element_text(size   = 12, 
+                                        color  = "#3f3f3f",
+                                        margin = margin(r = 0.4, unit = "cm")),
+            axis.title.x = element_text(size   = 14, 
+                                        face   = "bold",
+                                        margin = margin(t = 0.4, unit = "cm")),
+            axis.title.y = element_text(size   = 14, 
+                                        face   = "bold",
+                                        margin = margin(r = 0.4, unit = "cm")),
+            legend.text       = element_text(size   = 12),
+            panel.background  = element_rect(fill   = "#f6f6f6"),
+            panel.grid.major  = element_line(color  = "#e9e9e9"),
+            panel.grid.minor  = element_line(color  = "#e9e9e9"),
+            axis.line         = element_line(color  = "#a8a8a8"),
+            axis.ticks        = element_line(color  = "black", size = 0.5),
+            axis.ticks.length = unit(-0.2, "cm"))
   })
   return(p)
 }

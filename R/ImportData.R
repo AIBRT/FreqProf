@@ -8,6 +8,7 @@
 #'   GUI.
 #' @return A data.frame ready to be converted into freqprof class (see function 
 #'   \code{freqprof}).
+#' @importFrom utils read.csv
 #' @export
 #' @examples
 #'  \donttest{
@@ -86,6 +87,8 @@ read.bin = function(filename) {
 #' 
 #' @param filename a string indicating the path of the file.
 #' @return A data.frame of the .fpw data.
+#' @importFrom utils read.table
+#' 
 read.fpw = function(filename) {
            
   file.scan = scan(file  = filename,

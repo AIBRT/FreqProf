@@ -11,6 +11,7 @@
 #'   interpolated to \code{n} rows.
 #' @seealso \code{\link{approx}} is the underlying function and has more
 #'   options
+#' @importFrom stats approx spline
 #' @export
 #' 
 approxm <- function(data1, n, method = "linear") {
@@ -46,6 +47,7 @@ approxm <- function(data1, n, method = "linear") {
 #'   variables
 #' @seealso \code{\link{ks.test}} is the underlying function and has more
 #'   options.
+#' @importFrom stats ks.test
 #'   
 #' @export
 #' 
@@ -78,6 +80,7 @@ ks.testm <- function(data1, data2, vars) {
 #' @return Returns a \code{data.frame} of correlation test data for N variables
 #' @seealso \code{\link{cor.test}} is the underlying function and has more
 #'   options
+#' @importFrom stats cor.test
 #' @export
 #' 
 cor.testm <- function(data1, data2, method) {
