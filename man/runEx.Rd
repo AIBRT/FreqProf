@@ -10,8 +10,9 @@ runEx()
 Run interactive FreqProf example (Shiny App)
 }
 \examples{
-\donttest{
- runEx()
+# Only run this example in interactive R sessions
+if(interactive()) {
+  runEx()
 }
 }
 

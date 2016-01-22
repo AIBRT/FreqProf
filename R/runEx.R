@@ -2,8 +2,9 @@
 #'
 #' @export
 #' @examples
-#' \donttest{
-#'  runEx()
+#' # Only run this example in interactive R sessions
+#' if(interactive()) {
+#'   runEx()
 #' }
 runEx <- function() {
   appDir <- system.file("shinyapp", package = "FreqProf")

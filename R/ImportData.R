@@ -11,10 +11,10 @@
 #' @importFrom utils read.csv
 #' @export
 #' @examples
-#'  \donttest{
-#'  # Select a file
-#'  import_data(filename = system.file("extdata", "S58-1-1.bin", 
-#'                                     package = "FreqProf"))
+#' # Only run this example in interactive R sessions
+#' if(interactive()) {
+#'   # Select a file
+#'   import_data()
 #'  }
 import_data = function(filename = file.choose()) {
   file.extension = tolower(substr(filename, 
@@ -39,10 +39,8 @@ import_data = function(filename = file.choose()) {
 #' @return A data.frame giving the raw data.
 #' @export
 #' @examples
-#'  \donttest{
 #'  read.bin(filename = system.file("extdata", "S58-1-1.bin",
 #'                                  package = "FreqProf"))
-#'  }
 read.bin = function(filename) {
   
   # scanning the file, line by line

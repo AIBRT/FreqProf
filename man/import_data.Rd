@@ -20,10 +20,10 @@ This function reads a file, whose extension is either csv, bin or fpw, and
 imports it as a data.frame.
 }
 \examples{
- \donttest{
- # Select a file
- import_data(filename = system.file("extdata", "S58-1-1.bin", 
-                                    package = "FreqProf"))
+# Only run this example in interactive R sessions
+if(interactive()) {
+  # Select a file
+  import_data()
  }
 }
 
