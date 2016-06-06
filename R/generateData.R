@@ -32,12 +32,12 @@ generate_dates = function(startDate, nDays, by = "day") {
 #' @export
 #'
 #' @examples
-generate_behaviors = function(nBehaviors, nrow,
+generate_behaviors = function(nrow, nBehaviors,
                               prStart = 0.1, prEnd = 0.3, prBy = 0.001){
   
   pr = sample(seq(prStart, prEnd, prBy), 
               nBehaviors, 
               replace = T)
-  data1 = sapply(prob, function(x) rbinom(nrow, 1, x))
+  data1 = sapply(pr, function(x) rbinom(nrow, 1, x))
   return(data1)
 }
