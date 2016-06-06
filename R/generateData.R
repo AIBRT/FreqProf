@@ -1,16 +1,3 @@
-#' Generate a sequence of dates
-#' 
-#' @param startDate a character string in the format "YYYY-MM-DD"
-#' @param nDays length of output vector
-#' @param by days or weeks
-#'   
-#' @return Sequence of dates starting at startDate with length nDays by daily or
-#'   weekly increments
-#' @export
-#' 
-#' @examples 
-#' generate_dates("2016-06-05", 31, by = "day")
-#'
 generate_dates = function(startDate, nDays, by = "day") {
   
   startDate = as.Date(startDate)

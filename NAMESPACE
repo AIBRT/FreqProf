@@ -3,7 +3,6 @@
 export(approxm)
 export(cor.testm)
 export(freqprof)
-export(generate_dates)
 export(import_data)
 export(ks.testm)
 export(plot_freqprof)
