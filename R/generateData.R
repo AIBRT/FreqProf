@@ -20,6 +20,18 @@ generate_dates = function(startDate, nDays, by = "day") {
 }
 
 
+#' Title
+#'
+#' @param nBehaviors 
+#' @param nrow 
+#' @param prStart 
+#' @param prEnd 
+#' @param prBy 
+#'
+#' @return
+#' @export
+#'
+#' @examples
 generate_behaviors = function(nBehaviors, nrow,
                               prStart = 0.1, prEnd = 0.3, prBy = 0.001){
   
